@@ -1,1 +1,74 @@
 # NNBuTicC
+Bug Ticket Classifier using Multilayer Perceptron 
+
+# Description
+This repository contains source code about experiments about binary bug tickets classifiers.
+It is structured in 5 directories :file_folder: .
+
+```bash
+root
+|
+├─ genetic_algorithm 
+├─ classifier_selection 
+├─ multilayer_perceptron_settings
+├─ data
+```
+
+
+#### genetic_algorithm 
+Directory containing sources implementing genetic algorithm to optimize metaparameters (features 
+number and hidden_layer_size)
+
+#### classifier_selection 
+Contains a Jupyter notebook to reproduce results used to compare 6 classifiers (MLP, SVM, SGD, RR, RF, KNN).
+
+####  multilayer_perceptron_settings
+Contains a Jupyter notebook implementing 5 different settings with TF-IDF and MLP.
+
+#### data
+Json files containing the dataset of 5,591 tickets used in experiments. 
+Dataset :scroll: is split into 7 files to avoid the anonymisation limitation of 1MB performed by _anonymous.4open.science_
+The dataset coming from the conference paper: 
+"[It’s not a bug, it’s a feature: how misclassification impacts bug prediction](https://www.microsoft.com/en-us/research/wp-content/uploads/2013/05/icse2013-bugclassify.pdf)" 
+by Herzig, Kim and Just, Sascha and Zeller, Andreas.)
+
+# How to use ? :computer:
+
+### Requirements 
+* Python 3
+* Package Installer for Python (pip)
+
+
+A venv environment with following Python libraries is required:
+* [Matplotlib](https://matplotlib.org), installation instructions 
+[here](https://matplotlib.org/3.3.2/users/installing.html#).
+* [Scikit-Learn](https://scikit-learn.org/), installation instructions 
+[here](https://scikit-learn.org/stable/install.html#installation-instructions).
+* [Jupyter](https://jupyter.org), installation instructions 
+[here](https://jupyter.org/install).
+
+### genetic_algorithm
+Genetic algorithm parameters are set in a configuration Python file named "genetic_algo_params.py" at the directory root.
+
+A python main name "genetic_main.py" is runnable with the following command:
+```bash
+$ python3 genetic_main.py
+```
+
+To run it in background with logging:
+```bash
+$ nohup python3 genetic_main.py > genetic_algo.log &
+```
+
+### classifier_selection
+To run the Jupyter notebook please run this command:
+```bash
+$ jupyter notebook baseline_notebook.ipynb
+```
+
+###  multilayer_perceptron_settings
+To run the Jupyter notebook please run this command:
+
+```bash
+$ jupyter notebook mlp_settings.ipynb
+```
