@@ -32,6 +32,19 @@ The dataset coming from the conference paper:
 "[It’s not a bug, it’s a feature: how misclassification impacts bug prediction](https://www.microsoft.com/en-us/research/wp-content/uploads/2013/05/icse2013-bugclassify.pdf)" 
 by Herzig, Kim and Just, Sascha and Zeller, Andreas.)
 
+# How to get data and source code ? 
+
+To get data and source code you can use this command in a Linux terminal : 
+```bash
+$ mkdir paper_138 && \ 
+cd paper_138 && \ 
+wget -r https://anonymous.4open.science/r/816dccc2-ed04-4c0a-871a-bd517c06fa5a/ && \ 
+cd anonymous.4open.science/repository/816dccc2-ed04-4c0a-871a-bd517c06fa5a/ && \
+mv * ../../.. && \
+cd ../../.. && \
+rm -rf anonymous.4open.science
+```
+
 # How to use ? :computer:
 
 ### Requirements 
