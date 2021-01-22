@@ -1,0 +1,421 @@
+label,summarydescription
+1,"Authentication fails when connecting to server with username and password in non ascii characters. Tried connecting to an exchange server using NTLM authentication
+Username : íñëäíñëä
+password : íñëäíñëä
+
+I am getting 401 response.
+Auth failed
+Body: 
+Error: Access is Denied."
+1,"JCR-RMI problem with large binary values. As reported on the mailing list, a JCR-RMI connection will hang when given a binary value that's larger than the default 64kB buffer size."
+1,"Header Connection Close - Closes the Connection. If the connectionHeader equals Close the conection imediateley closes, without 
+waiting for the responce back from the server. 
+
+If the client is pulling data from a CGI script which has not sent the Content 
+Length - most servers will send a Connection Close header. For example 
+
+-----------------------------------------
+HTTP/1.1 200 OK
+Date: Fri, 21 Jun 2002 17:08:46 GMT
+Server: Apache/1.3.14 (Unix)
+Connection: close
+Content-Type: text/html
+ 
+<html>
+      <head>
+            <title>thegumtree.com - London's online community for Aussies, Kiwis
+ and South Africans</title>
+                           <meta http-equiv=""Content-Type"" content=""text/html; c
+harset=iso-8859-1"">
+                   </head>
+
+--------------------------------
+
+I do not yet have a work arround apart from commenting out the the following 
+code in 
+
+Header connectionHeader = getResponseHeader(""connection""); etc
+
+in HttpMethodBase"
+1,"Query does not work after logging into workspace with no indexes. When I login to workspace that does not have indexes, they are created but my queries do not return results unless I relog. Output from running attached code sample is:
+
+Node [node1240842434531] created in workspace [test1240842434312]
+Property [name] set to [someValueOfMyProperty]
+Asking query: select * from nt:unstructured where nt:name like 'someValueOfMyProperty'
+Found: 1 nodes before deleting index.
+Asking query: select * from nt:unstructured where nt:name like 'someValueOfMyProperty'
+Found: 0 nodes after deleting index.
+done"
+1,"XA Transaction Recovery. If i add a node to the repository i get a XAException because i run into a Timeout ... 
+I see the Warn Message: Transaction rolled back because timeout expired.
+The default Timeout is set to 5 sec and i dont know how to set it to a higher value
+The Problem is if i restart my server websphere has a RecoveryManager and he try to recover this Transaction
+and then i get a NullpointerException in JCAManagedConnectionFactory. createManagedConnection beacuse the given 
+ConnectionRequestInfo is null.
+So i dont know why the RecoveryManager tries to recover the Transaction ? The only solution for me is to delete the Tran-Log Files wich keep Websphere to recvoer
+XA Trasnactions.
+"
+1,"spi2dav : Query offset not respected. the TCK query test SetOffsetTest fails in the setup jcr2spi - spi2dav(ex) - jcr-server.
+not sure whether it is due to missing implementation on client or server part of something completely different...."
+1,"Restart of RMI-component fails (because it's not released while shutdown). I just moved setup model for the Jackrabbit repository from a Tomcat-global JNDI-datasouce to a autonomous server connected via RMI to get rid off the problem of a total restart of the tomcat, if e.g. something is changed in the jackrabbit setup.
+
+But the restart of the RMI component of the jackrabbit server package will fail, because on shutdown the rmi binding isn't released. From that, at restart, the socket is still in use and the (just) RMI component fails to start. In the other hand, it isn't possible to connect to the server through the remaining rmi component; you'll get a EOF-exception in RMI communication. Of course, a complete restart of the Tomcat will help, but isn't appropriate. 
+
+It looks to me like just some release on shutdown is missing. May somebody provide a patch?
+
+(log exception at restart)
+20080306-093849.086 INFO  [ajp-8009-2] [] [RepositoryStartupServlet] Cannot create Registry
+java.rmi.server.ExportException: Port already in use: 1099; nested exception is: 
+        java.net.BindException: Address already in use
+        at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:249)
+        at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:184)
+        at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:382)
+        at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:116)
+        at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:180)
+        at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:92)
+        at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:68)
+        at java.rmi.registry.LocateRegistry.createRegistry(LocateRegistry.java:222)
+        at org.apache.jackrabbit.j2ee.RepositoryStartupServlet.registerRMI(RepositoryStartupServlet.
+        at org.apache.jackrabbit.j2ee.RepositoryStartupServlet.startup(RepositoryStartupServlet.java
+        at org.apache.jackrabbit.j2ee.RepositoryStartupServlet.init(RepositoryStartupServlet.java:21
+        at javax.servlet.GenericServlet.init(GenericServlet.java:212)
+"
+1,"HttpMethod#getResponseBody throws NPE. HttpMethod#getResponseBody throws an NPE if the response from the server was 
+204.  Shouldn't getResponseBody return null by contract instead of throwing 
+NPE?"
+1,"Incorrect node position after import. I have found a behavior that does not seem to be consistent with the
+spec:
+
+After replacing a node with importXML using IMPORT_UUID_COLLISION_REPLACE_EXISTING the new node is not at the position of the replaced node (talking about the position among the siblings).
+
+The origininal node is removed, but the new node is created as the last child of the parent node, and not spec-compliant at the position of the replaced node.
+
+Here how I use it:
+
+// assume Session s, Node n, String text (holding XML data)
+
+s.importXML(
+	n.getPath(), 
+	new ByteArrayInputStream (text.getBytes(""UTF-8"")),
+	ImportUUIDBehavior.IMPORT_UUID_COLLISION_REPLACE_EXISTING
+);
+s.save();
+ 
+
+And here a quote from the spec section 7.3.6
+
+ImportUUIDBehavior.IMPORT_UUID_COLLISION_REPLACE_EXISTING: 
+If an incoming referenceable node has the same UUID as a node already existing in the workspace then the already existing node is replaced by the incoming node in the same position as the existing node.
+[note ""same position""]
+"
+1,Node deleted while query is executed should not affect result size. Currently the QueryResultImpl counts result nodes as invalid when the access check throws a ItemNotFoundException (line 311). This leads to inconsistent total size. IMO it is sufficient to count them as invalid when the client iterates over the nodes (line 555).
+1,UserManager.getAuthorizable() may fail with InvalidQueryException. Happens when the principal name contains an apostrophe.
+1,"NPE in NearSpansUnordered from PayloadNearQuery. The following query causes a NPE in NearSpansUnordered, and is reproducible with the the attached unit test. The failure occurs on the last document scored.
+"
+1,"org.apache.lucene.search.BooleanQuery$TooManyClauses when using '>' operator. when using a query with a '>' operator, the query engine does not scale with number of matching properties and a org.apache.lucene.search.BooleanQuery$TooManyClauses exception is thrown"
+1,"Deleting docs of all returned Hits during search causes ArrayIndexOutOfBoundsException. For background user discussion:
+http://www.nabble.com/document-deletion-problem-to14414351.html
+
+{code}
+Hits h = m_indexSearcher.search(q); // Returns 11475 documents 
+for(int i = 0; i < h.length(); i++) 
+{ 
+  int doc = h.id(i); 
+  m_indexSearcher.getIndexReader().deleteDocument(doc);  <-- causes ArrayIndexOutOfBoundsException when i = 6400
+} 
+{code}
+"
+1,"HttpConnection isOpen flag concurrency problem. The HttpConnection.java class contains an isOpen boolean used to track the state
+of the connection (opened or closed).  The problem is that in the
+closeSocketAndStreams(), the flag is only flipped at the end of the
+unsynchronized method (after resources have been released) which causes a
+concurrency issue in flushRequestOutputStream() where the flag is checked first
+and the the outputStream is accessed.
+
+I'm providing a patch for this problem."
+1,"TestIndexWriter.testBackgroundOptimize fails with too many open files. Recreate with this line:
+
+ant test -Dtestcase=TestIndexWriter -Dtestmethod=testBackgroundOptimize -Dtests.seed=-3981504507637360146:51354004663342240
+
+Might be related to LUCENE-2873 ?"
+1,"Contrib queries package Query implementations do not override equals(). Query implementations should override equals() so that Query instances can be cached and that Filters can know if a Query has been used before.  See the discussion in this thread.
+
+http://www.mail-archive.com/java-user@lucene.apache.org/msg13061.html
+
+Following 3 contrib Query implementations do no override equals()
+
+org.apache.lucene.search.BoostingQuery;
+org.apache.lucene.search.FuzzyLikeThisQuery;
+org.apache.lucene.search.similar.MoreLikeThisQuery;
+
+Test cases below show the problem.
+
+package com.teamware.office.lucene.search;
+
+import static org.junit.Assert.*;
+
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.search.BoostingQuery;
+import org.apache.lucene.search.FuzzyLikeThisQuery;
+import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.search.similar.MoreLikeThisQuery;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+public class ContribQueriesEqualsTest
+{
+    /**
+     * @throws java.lang.Exception
+     */
+    @Before
+    public void setUp() throws Exception
+    {
+    }
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @After
+    public void tearDown() throws Exception
+    {
+    }
+    
+    /**
+     *  Show that the BoostingQuery in the queries contrib package 
+     *  does not implement equals() correctly.
+     */
+    @Test
+    public void testBoostingQueryEquals()
+    {
+        TermQuery q1 = new TermQuery(new Term(""subject:"", ""java""));
+        TermQuery q2 = new TermQuery(new Term(""subject:"", ""java""));
+        assertEquals(""Two TermQueries with same attributes should be equal"", q1, q2);
+        BoostingQuery bq1 = new BoostingQuery(q1, q2, 0.1f);
+        BoostingQuery bq2 = new BoostingQuery(q1, q2, 0.1f);
+        assertEquals(""BoostingQuery with same attributes is not equal"", bq1, bq2);
+    }
+
+    /**
+     *  Show that the MoreLikeThisQuery in the queries contrib package 
+     *  does not implement equals() correctly.
+     */
+    @Test
+    public void testMoreLikeThisQueryEquals()
+    {
+        String moreLikeFields[] = new String[] {""subject"", ""body""};
+        
+        MoreLikeThisQuery mltq1 = new MoreLikeThisQuery(""java"", moreLikeFields, new StandardAnalyzer());
+        MoreLikeThisQuery mltq2 = new MoreLikeThisQuery(""java"", moreLikeFields, new StandardAnalyzer());
+        assertEquals(""MoreLikeThisQuery with same attributes is not equal"", mltq1, mltq2);
+    }
+    /**
+     *  Show that the FuzzyLikeThisQuery in the queries contrib package 
+     *  does not implement equals() correctly.
+     */
+    @Test
+    public void testFuzzyLikeThisQueryEquals()
+    {
+        FuzzyLikeThisQuery fltq1 = new FuzzyLikeThisQuery(10, new StandardAnalyzer());
+        fltq1.addTerms(""javi"", ""subject"", 0.5f, 2);
+        FuzzyLikeThisQuery fltq2 = new FuzzyLikeThisQuery(10, new StandardAnalyzer());
+        fltq2.addTerms(""javi"", ""subject"", 0.5f, 2);
+        assertEquals(""FuzzyLikeThisQuery with same attributes is not equal"", fltq1, fltq2);
+    }
+}
+"
+1,"Background threads should use jackrabbit classloader as thread context classloader. The RepositoryImpl uses a thread executor with a default thread factory for some background threads. These threads should use the jackrabbit class loader (the classloader used for loading jackrabbit)
+as thread context classloader. Currently the classloader is used which causes a new thread to be greated.
+For example in combination with Sling the following can happen: a jsp in sling initiates a save to jackrabbit, this causes the indexing to start which is done in a background thread. A new thread is taken from the pool and the thread context class loader is set to the thread context classloader of the jsp/sling. If now Sling is undeployed, jackrabbit still holds this class loader. This creates a hugh memory leak.
+"
+1,"Using WildcardQuery with MultiSearcher, and Boolean MUST_NOT clause. We are searching across multiple indices using a MultiSearcher. There seems to be a problem when we use a WildcardQuery to exclude documents from the result set. I attach a set of unit tests illustrating the problem.
+
+In these tests, we have two indices. Each index contains a set of documents with fields for 'title',  'section' and 'index'. The final aim is to do a keyword search, across both indices, on the title field and be able to exclude documents from certain sections (and their subsections) using a
+WildcardQuery on the section field.
+ 
+ e.g. return documents from both indices which have the string 'xyzpqr' in their title but which do not lie
+ in the news section or its subsections (section = /news/*).
+ 
+The first unit test (testExcludeSectionsWildCard) fails trying to do this.
+ If we relax any of the constraints made above, tests pass:
+ 
+* Don't use WildcardQuery, but pass in the news section and it's child section to exclude explicitly (testExcludeSectionsExplicit)</li>
+* Exclude results from just one section, not it's children too i.e. don't use WildcardQuery(testExcludeSingleSection)</li>
+* Do use WildcardQuery, and exclude a section and its children, but just use one index thereby using the simple
+   IndexReader and IndexSearcher objects (testExcludeSectionsOneIndex).
+* Try the boolean MUST clause rather than MUST_NOT using the WildcardQuery i.e. only include results from the /news/ section
+   and its children."
+1,"Multiple namespace definitions in CND prevent definition of node type without child nodes. The BNF in http://jackrabbit.apache.org/api-1/org/apache/jackrabbit/core/nodetype/compact/CompactNodeTypeDefReader.html
+defines:
+
+[...]
+cnd ::= {ns_mapping | node_type_def}
+[...]
+
+so multiple namespace definitions should not affect the node type definitions.
+
+However, the following CND definition will fail:
+
+<namespace= 'http://www.mynamespace.co.uk/namespace'>
+<nt = 'http://www.jcp.org/jcr/nt/1.0'>
+[namespace:document] > nt:file
+   - namespace:name (string) mandatory
+
+<namespace= 'http://www.mynamespace.co.uk/namespace'>
+<nt = 'http://www.jcp.org/jcr/nt/1.0'>
+[namespace:document2] > nt:file
+   - namespace:name (string) mandatory
+
+
+Remove the second set of namespace definitions, and all's well:
+
+<namespace= 'http://www.mynamespace.co.uk/namespace'>
+<nt = 'http://www.jcp.org/jcr/nt/1.0'>
+[namespace:document] > nt:file
+   - namespace:name (string) mandatory
+
+[namespace:document2] > nt:file
+   - namespace:name (string) mandatory"
+0,"allow subclassing of NodeTypeReader. in working towards an offline tool to import custom namespaces and node types, i found that i needed to make some small changes to NodeTypeReader and DOMWalker so that i could subclass NodeTypeReader and access the namespaces specified in the node type definition file. see the attached patch.
+"
+0,Improvements to user management (2). follow up issue as JCR-2199 is already closed.
+0,"Speed up Top-K sampling tests. speed up the top-k sampling tests (but make sure they are thorough on nightly etc still)
+
+usually we would do this with use of atLeast(), but these tests are somewhat tricky,
+so maybe a different approach is needed."
+0,"allow different strategies when checking CN of x509 cert. We're now doing a decent job for checking the CN of the x509 cert with https:
+
+http://issues.apache.org/jira/browse/HTTPCLIENT-613
+
+I think the patch for HTTPCLIENT-613 should cover 99.9% of the users out there.  But there are some more esoteric possibilities, so I think Oleg is right.  We need to let the user change the strategy, or provide their own strategy if they want to. 
+
+Some additional things to think about:
+
+- http://wiki.cacert.org/wiki/VhostTaskForce !!!   CN is depreciated?!?!   (I am not able to find a popular website on HTTPS that isn't using CN!)
+
+- [*.example.com] matches subdomains [a.b.example.com] on Firefox, but not IE6.  The patch for HTTPCLIENT-613 allows subdomains.
+
+- Should we support multiple CN's in the subject?
+
+- Should we support ""subjectAltName=DNS:www.example.com"" ?  Should we support lots of them in a single cert?
+
+- Should we support a mix of CN and subjectAltName?
+
+
+If we do create some alternate strategies for people to try, I'd probably lean towards something like this:
+
+X509NameCheckingStrategy.SUN_JAVA_6  (default)
+X509NameCheckingStrategy.FIREFOX2
+X509NameCheckingStrategy.IE7
+X509NameCheckingStrategy.FIRST_CN_AND_NO_WILDCARDS   (aka ""STRICT"")
+
+"
+0,Allow separate control over whether body is stored or analyzed. Simple enhancement to DocMaker.
+0,"Make tests using java.util.Random reproducible on failure. This is a patch for LuceneTestCase to support logging of the Random seed used in randomized tests. The patch also includes an example implementation in TestTrieRangeQuery.
+
+It overrides the protected method runTest() and inserts a try-catch around the super.runTest() call. Two new methods newRandom() and newRandom(long) are available for the test case. As each test case is run in an own TestCase object instance (so 5 test methods in a class instantiate 5 instances each method working in separate), the random seed is saved on newRandom() and when the test fails with any Throwable, a message with the seed (if not null) is printed out. If newRandom was never called no message will be printed.
+
+This patch has only one problem: If a single test method calls newRandom() more than once, only the last seed is saved and printed out. But each test method in a Testcase should call newRandom() exactly once for usage during the execution of this test method. And it is not thread save (no sync, no volatile), but for tests it's unimportant.
+
+I forgot to mention: If a test fails, the message using the seed is printed to stdout. The developer can then change the test temporarily:
+
+{code}LuceneTestCase.newRandom() -> LuceneTestCase.newRandom(long){code}
+
+using the seed from the failed test printout.
+
+*Reference:*
+{quote}
+: By allowing Random to randomly seed itself, we effectively test a much
+: much larger space, ie every time we all run the test, it's different.  We can
+: potentially cast a much larger net than a fixed seed.
+
+i guess i'm just in favor of less randomness and more iterations.
+
+: Fixing the bug is the ""easy"" part; discovering a bug is present is where
+: we need all the help we can get ;)
+
+yes, but knowing a bug is there w/o having any idea what it is or how to 
+trigger it can be very frustrating.
+
+it would be enough for tests to pick a random number, log it, and then use 
+it as the seed ... that way if you get a failure you at least know what 
+seed was used and you can then hardcode it temporarily to reproduce/debug
+
+-Hoss
+{quote}"
+0,"activity storage path. JSR-283 states in 15.12.3:
+
+""15.12.3 Activity Storage
+Activities are persisted as nodes of type nt:activity under system-generated
+node names in activity storage below /jcr:system/jcr:activities.""
+
+As far as I can tell, this is currently not the case.
+
+A related test case, org.apache.jackrabbit.test.api.version.ActivitiesTest#testActivitiesPath, apparently was taken out accidentally.
+
+If Jackrabbit can't implement this JCR requirement, we either need to document it, or raise it as issue in the JCR Expert Group."
+0,"Order of stored Fields not maintained. As noted in these threads...
+
+http://www.nabble.com/Order-of-fields-returned-by-Document.getFields%28%29-to21034652.html
+http://www.nabble.com/Order-of-fields-within-a-Document-in-Lucene-2.4%2B-to24210597.html
+
+somewhere prior to Lucene 2.4.1 a change was introduced that prevents the Stored fields of a Document from being returned in same order that they were originally added in.  This can cause serious performance problems for people attempting to use LoadFirstFieldSelector or a custom FieldSelector with the LOAD_AND_BREAK, or the SIZE_AND_BREAK options (since the fields don't come back in the order they expect)
+
+Speculation in the email threads is that the origin of this bug is code introduced by LUCENE-1301 -- but the purpose of that issue was refactoring, so if it really is the cause of the change this would seem to be a bug, and not a side affect of a conscious implementation change.
+
+Someone who understands indexing internals should investigate this.  At a minimum, if it's decided that this is not actual a bug, then prior to resolving this bug the wiki docs and some of the FIeldSelector javadocs should be updated to make it clear what order Fields will be returned in.
+
+"
+0,Move FilterIterator and SizedIterator from package flat to package iterator. I suggest to move said classes from package org.apache.jackrabbit.commons.flat to package org.apache.jackrabbit.commons.iterator. 
+0,Include to jackrabbit-jcr-rmi and jackrabbit-jcr-servlet in main trunk. Jackrabbit 2.0 should include the 2.0 version of the RMI component and the related jcr-servlet updates.
+0,"factor out a shared spellchecking module. In lucene's contrib we have spellchecking support (index-based spellchecker, directspellchecker, etc). 
+we also have some things like pluggable comparators.
+
+In solr we have auto-suggest support (with two implementations it looks like), some good utilities like HighFrequencyDictionary, etc.
+
+I think spellchecking is really important... google has upped the ante to what users expect.
+So I propose we combine all this stuff into a shared modules/spellchecker, which will make it easier
+to refactor and improve the quality.
+"
+0,Versioning operations should be done on the workspace. currently all versioning operations modify the transient states of the items where the operation is executed although all operations are workspace operations.
+0,"TCK does not clean 2nd workspace during AbstractJCRTest.setUp(). the XATest.testXAVersionsThoroughly fails if run 2 times, since the 2nd workspace is not cleaned on startup. will provide provisonairy fix."
+0,"Remove ""System Properties"" page from release specific docs. We no longer use system properties to configure Lucene in version 3.0, the page is obsolete and should be removed before release."
+0,"Cosmetic JavaDoc updates. I've taken the liberty of making a few cosmetic updates to various JavaDocs:
+
+* MergePolicy (minor cosmetic change)
+* LogMergePolicy (minor cosmetic change)
+* IndexWriter (major cleanup in class description, changed anchors to JavaDoc links [now works in Eclipse], no content change)
+
+Attached diff from SVN r780545.
+
+I would appreciate if whomever goes over this can let me know if my issue parameter choices were correct (yeah, blame my OCD), and if there's a more practical/convenient way to send these in, please let me know :-)
+"
+0,"Changes.html generation improvements. Bug fixes for and improvements to changes2html.pl, which generates Changes.html from CHANGES.txt:
+
+# When the current location has a fragment identifier, expand parent sections, so that the linked-to section is visible.
+# Properly handle beginning-of-release comments that don't fall under a section heading (previously: some content in release ""1.9 final"" was invisible).
+# Auto-linkify SOLR-XXX and INFRA-XXX JIRA issues (previously: only LUCENE-XXX issues).
+# Auto-linkify Bugzilla bugs prefaced with ""Issue"" (previously: only ""Bug"" and ""Patch"").
+# Auto-linkify Bugzilla bugs in the form ""bugs XXXXX and YYYYY"".
+# Auto-linkify issues that follow attributions.
+"
+0,Get rid of (another) hard coded path. 
+0,"Move FuzzyQuery rewrite as separate RewriteMode into MTQ, was: Highlighter fails to highlight FuzzyQuery. As FuzzyQuery does not allow to change the rewrite mode, highlighter fails with UOE in flex since LUCENE-2110, because it changes the rewrite mode to Boolean query. The fix is: Allow MTQ to change rewrite method and make FUZZY_REWRITE public for that.
+
+The rewrite mode will live in MTQ as TOP_TERMS_SCORING_BOOLEAN_REWRITE. Also the code will be refactored to make heavy reuse of term enumeration code and only plug in the PQ for filtering the top terms."
+0,"Allow to pass an instance of RateLimiter to FSDirectory allowing to rate limit merge IO across several directories / instances. This can come in handy when running several Lucene indices in the same VM, and wishing to rate limit merge across all of them."
+0,"contrib/benchmark config does not play nice with doubles with the flush.by.ram value. In the o.a.l.benchmark.byTask.utils.Config.java file, the nextRound and various other methods do not handle doubles in the ""round"" property configuration syntax.
+
+To replicate this, copy the micro-standard.alg and replace 
+merge.factor=mrg:10:100:10:100
+max.buffered=buf:10:10:100:100
+
+with
+
+ram.flush.mb=ram:32:40:48:56
+
+and you will get various ClassCastExceptions in Config (one in newRound() and, when that is fixed, in getColsValuesForValsByRound.
+
+The fix seems to be to just to mirror the handling of int[].
+
+The fix seems relatively minor.  Patch shortly and will plan to commit tomorrow evening."
