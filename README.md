@@ -36,8 +36,8 @@ by Herzig, Kim and Just, Sascha and Zeller, Andreas.)
 
 To get data and source code you can use this command in a Linux terminal : 
 ```bash
-$ mkdir paper_138 && \ 
-cd paper_138 && \ 
+$ mkdir paper_77 && \ 
+cd paper_77 && \ 
 wget -r https://anonymous.4open.science/r/816dccc2-ed04-4c0a-871a-bd517c06fa5a/ && \ 
 cd anonymous.4open.science/repository/816dccc2-ed04-4c0a-871a-bd517c06fa5a/ && \
 mv * ../../.. && \
