@@ -161,7 +161,7 @@ def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size
     if SamplingMode == 1:
         df = Undersampling(df)
         print('creating undersampled dataset of : ' + str(df.shape))
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "Undersampled"
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "UnderSampled"
         if not os.path.exists(data_directory):
             os.makedirs(data_directory)
         data_directory = data_directory + os.path.sep + "Kfold_csv_files"
@@ -169,7 +169,7 @@ def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size
     if SamplingMode == 2:
         df = Oversampling(df)
         print('creating oversampled dataset of : ' + str(df.shape))
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "Oversampled"
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "OverSampled"
         if not os.path.exists(data_directory):
             os.makedirs(data_directory)
         data_directory = data_directory + os.path.sep + "Kfold_csv_files"
