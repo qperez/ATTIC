@@ -395,7 +395,7 @@ for i in range(10):
 
     best_model = BERT().to(device)
 
-    load_checkpoint(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model", best_model)
+    load_checkpoint(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model"+ os.path.sep +"model.pth", best_model)
 
     evaluate(model=best_model, test_loader=test_iter,
              file_path=".." + os.path.sep + "Dataset_KFold_" + str(
