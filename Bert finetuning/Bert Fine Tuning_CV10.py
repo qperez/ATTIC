@@ -111,6 +111,7 @@ def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size
             os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i))
             os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model")
             os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "metrics")
+            os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "evaluate")
             df_test.to_csv(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "test.csv", index=False)
 
     csv_file_list = []
