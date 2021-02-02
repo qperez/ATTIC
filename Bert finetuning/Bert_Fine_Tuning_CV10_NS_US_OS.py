@@ -10,6 +10,8 @@ import json
 import os
 import numpy
 import shutil
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.over_sampling import RandomOverSampler
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -42,6 +44,10 @@ boost_summary = 3
 project_keys = ["HTTPCLIENT", "LUCENE", "JCR"]
 random_seed = 200
 
+data_directory = ".." + os.path.sep + "Temp_Data_Files"
+if not os.path.exists(data_directory):
+    os.makedirs(data_directory)
+
 
 def load_data():
     raw_data = []
@@ -72,16 +78,103 @@ def get_corpus_labels(raw_data):
     return corpus, labels
 
 
-def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size=0.8):
+def Undersampling(dataFrame):
+    X = np.array(dataFrame["summmarydescription"])
+    y = np.array(dataFrame["label"])
+    X = X.reshape(-1, 1)
+    y = y.reshape(-1, 1)
+    rus = RandomUnderSampler(random_state=42)
+    X_res, y_res = rus.fit_resample(X, y)
+    df = pd.DataFrame({'summarydescription': np.array(X_res.flatten()), 'label': np.array(y_res.flatten())})
+    return df
+
+
+def Oversampling(dataFrame):
+    X = np.array(dataFrame["summmarydescription"])
+    y = np.array(dataFrame["label"])
+    X = X.reshape(-1, 1)
+    y = y.reshape(-1, 1)
+    ros = RandomOverSampler(random_state=42)
+    X_res, y_res = ros.fit_resample(X, y)
+    df = pd.DataFrame({'summarydescription': np.array(X_res.flatten()), 'label': np.array(y_res.flatten())})
+    return df
+
+
+def create_files_for_Kfold(nb_csv, df_test, SamplingMode):
+    if SamplingMode == 0:
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "NotSampled"
+    if SamplingMode == 1:
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "UnderSampled"
+    if SamplingMode == 2:
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "OverSampled"
+
+    for i in range(nb_csv):
+        if not os.path.exists(data_directory + os.path.sep + "Dataset_KFold_" + str(i)):
+            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i))
+            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model")
+            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "metrics")
+            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "evaluate")
+            df_test.to_csv(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "test.csv",
+                           index=False)
+
+    csv_file_list = []
+    for i in range(nb_csv):
+        csv_file_list.append(
+            data_directory + os.path.sep + "Kfold_csv_files" + os.path.sep + "data_fold_" + str(i) + ".csv")
+
+    for i in range(nb_csv):
+
+        list_of_dataframes = []
+
+        for filename in csv_file_list:
+
+            if filename[-5] != str(i):
+                list_of_dataframes.append(pd.read_csv(filename))
+
+            else:
+                valid_df = pd.read_csv(filename)
+                valid_df.to_csv(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "valid.csv",
+                                index=False)
+
+        train_df = pd.concat(list_of_dataframes)
+        train_df.to_csv(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "train.csv",
+                        index=False)
+
+        del train_df
+
+
+def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size=0.8, SamplingMode=0):
     print("starting creation of datasets for cross validation")
-    data_directory = ".." + os.path.sep + "Kfold_csv_files"
-    if not os.path.exists(data_directory):
-        os.makedirs(data_directory)
     data = {'label': labels, 'summmarydescription': corpus, }
     df = pd.DataFrame(data)
     if relabel:
         df['label'] = (df['label'] == 'BUG').astype('int')
+    if SamplingMode == 0:
 
+        print('creating dataset of : ' + str(df.shape))
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "NotSampled"
+        if not os.path.exists(data_directory):
+            os.makedirs(data_directory)
+        data_directory = data_directory + os.path.sep + "Kfold_csv_files"
+
+    if SamplingMode == 1:
+        df = Undersampling(df)
+        print('creating undersampled dataset of : ' + str(df.shape))
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "Undersampled"
+        if not os.path.exists(data_directory):
+            os.makedirs(data_directory)
+        data_directory = data_directory + os.path.sep + "Kfold_csv_files"
+
+    if SamplingMode == 2:
+        df = Oversampling(df)
+        print('creating oversampled dataset of : ' + str(df.shape))
+        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "Oversampled"
+        if not os.path.exists(data_directory):
+            os.makedirs(data_directory)
+        data_directory = data_directory + os.path.sep + "Kfold_csv_files"
+
+    if not os.path.exists(data_directory):
+        os.makedirs(data_directory)
     df_train = df.sample(frac=train_set_size, random_state=random_seed)
     df_test = df.drop(df_train.index)
 
@@ -106,39 +199,13 @@ def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size
         file_name = data_directory + os.path.sep + "data_fold_" + str(i) + ".csv"
         df_i.to_csv(file_name, index=False)
 
-    for i in range(nb_csv):
-        if not os.path.exists(".." + os.path.sep + "Dataset_KFold_" + str(i)):
-            os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i))
-            os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model")
-            os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "metrics")
-            os.makedirs(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "evaluate")
-            df_test.to_csv(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "test.csv", index=False)
-
-    csv_file_list = []
-    for i in range(nb_csv):
-        csv_file_list.append(".." + os.path.sep + "Kfold_csv_files" + os.path.sep + "data_fold_" + str(i) + ".csv")
-
-    for i in range(nb_csv):
-
-        list_of_dataframes = []
-
-        for filename in csv_file_list:
-
-            if filename[-5] != str(i):
-                list_of_dataframes.append(pd.read_csv(filename))
-
-            else:
-                valid_df = pd.read_csv(filename)
-                valid_df.to_csv(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "valid.csv", index=False)
-
-        train_df = pd.concat(list_of_dataframes)
-        train_df.to_csv(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "train.csv", index=False)
-
-        del train_df
+    create_files_for_Kfold(nb_csv, df_test, SamplingMode)
 
 
 corpus, labels = get_corpus_labels(load_data())
-create_csv_for_Kfold(corpus, labels)
+create_csv_for_Kfold(corpus, labels, SamplingMode=2)
+create_csv_for_Kfold(corpus, labels, SamplingMode=1)
+create_csv_for_Kfold(corpus, labels, SamplingMode=0)
 
 #######################################################################################################################
 #######################################################################################################################
@@ -368,36 +435,44 @@ def evaluate(model, test_loader, file_path):
     ax.yaxis.set_ticklabels(['NBug', 'Bug'])
 
 
-for i in range(10):
-    print("STARTING WITH DATASET NB " + str(i) + '\n')
-    model = BERT().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=2e-5)
+training_path = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep
 
-    train_iter, valid_iter, test_iter = init(
-        TRAIN_FILE=".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "train.csv",
-        VALID_FILE=".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "valid.csv",
-        TEST_FILE=".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "test.csv")
-    train(model=model, optimizer=optimizer, train_loader=train_iter, valid_loader=valid_iter, num_epochs=5,
-          file_path_metrics=".." + os.path.sep + "Dataset_KFold_" + str(
-              i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth",
-          file_path_model=".." + os.path.sep + "Dataset_KFold_" + str(
-              i) + os.path.sep + "model" + os.path.sep + "model.pth")
 
-    train_loss_list, valid_loss_list, global_steps_list = load_metrics(
-        ".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep +
-        "metrics" + os.path.sep + "metrics.pth")
+def cross_val(training_path, dataset_type):
+    training_path += (dataset_type + os.path.sep + + "Dataset_KFold_")
+    print("STARTING CROSS VALIDATION FOR " + dataset_type + "DATASET" + '\n\n')
+    for i in range(10):
+        print("STARTING WITH FOLD NB " + str(i) + '\n')
+        model = BERT().to(device)
+        optimizer = optim.Adam(model.parameters(), lr=2e-5)
 
-    plt.plot(global_steps_list, train_loss_list, label='Train')
-    plt.plot(global_steps_list, valid_loss_list, label='Valid')
-    plt.xlabel('Global Steps')
-    plt.ylabel('Loss')
-    plt.legend()
-    plt.show()
+        train_iter, valid_iter, test_iter = init(
+            TRAIN_FILE=training_path + str(i) + os.path.sep + "train.csv",
+            VALID_FILE=training_path + str(i) + os.path.sep + "valid.csv",
+            TEST_FILE=training_path + str(i) + os.path.sep + "test.csv")
+        train(model=model, optimizer=optimizer, train_loader=train_iter, valid_loader=valid_iter, num_epochs=5,
+              file_path_metrics=training_path + str(i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth",
+              file_path_model=training_path + str(i) + os.path.sep + "model" + os.path.sep + "model.pth")
 
-    best_model = BERT().to(device)
+        train_loss_list, valid_loss_list, global_steps_list = load_metrics(
+            training_path + str(i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth")
 
-    load_checkpoint(".." + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model"+ os.path.sep +"model.pth", best_model)
+        plt.plot(global_steps_list, train_loss_list, label='Train')
+        plt.plot(global_steps_list, valid_loss_list, label='Valid')
+        plt.xlabel('Global Steps')
+        plt.ylabel('Loss')
+        plt.legend()
+        plt.show()
 
-    evaluate(model=best_model, test_loader=test_iter,
-             file_path=".." + os.path.sep + "Dataset_KFold_" + str(
-                 i) + os.path.sep + "evaluate" + os.path.sep + "evaluate.pth")
+        best_model = BERT().to(device)
+
+        load_checkpoint(training_path + str(i) + os.path.sep + "model", best_model)
+
+        evaluate(model=best_model, test_loader=test_iter,
+                 file_path=training_path + str(i) + os.path.sep + "evaluate" + os.path.sep + "evaluate.pth")
+
+
+cross_val(training_path, 'NotSampled')
+cross_val(training_path, 'UnderSampled')
+cross_val(training_path, 'OverSampled')
+
