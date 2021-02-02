@@ -42,7 +42,7 @@ import seaborn as sns
 
 boost_summary = 3
 project_keys = ["HTTPCLIENT", "LUCENE", "JCR"]
-random_seed = 200
+random_seed = 42
 
 data_directory = ".." + os.path.sep + "Temp_Data_Files"
 if not os.path.exists(data_directory):
@@ -143,7 +143,7 @@ def create_files_for_Kfold(nb_csv, df_test, SamplingMode):
         del train_df
 
 
-def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size=0.8, SamplingMode=0):
+def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size=0.85, SamplingMode=0):
     print("starting creation of datasets for cross validation")
     data = {'label': labels, 'summmarydescription': corpus, }
     df = pd.DataFrame(data)
