@@ -13,6 +13,7 @@ import shutil
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import RandomOverSampler
 import warnings
+import numpy as np
 
 warnings.filterwarnings('ignore')
 
@@ -439,8 +440,8 @@ training_path = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep
 
 
 def cross_val(training_path, dataset_type):
-    training_path += (dataset_type + os.path.sep + + "Dataset_KFold_")
-    print("STARTING CROSS VALIDATION FOR " + dataset_type + "DATASET" + '\n\n')
+    training_path += (dataset_type + os.path.sep + "Dataset_KFold_")
+    print("STARTING CROSS VALIDATION FOR " + dataset_type + " DATASET" + '\n')
     for i in range(10):
         print("STARTING WITH FOLD NB " + str(i) + '\n')
         model = BERT().to(device)
