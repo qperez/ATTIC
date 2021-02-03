@@ -86,7 +86,7 @@ def Undersampling(dataFrame):
     y = y.reshape(-1, 1)
     rus = RandomUnderSampler(random_state=42)
     X_res, y_res = rus.fit_resample(X, y)
-    df = pd.DataFrame({'summarydescription': np.array(X_res.flatten()), 'label': np.array(y_res.flatten())})
+    df = pd.DataFrame({'label': np.array(y_res.flatten()), 'summarydescription': np.array(X_res.flatten())})
     return df
 
 
@@ -97,7 +97,7 @@ def Oversampling(dataFrame):
     y = y.reshape(-1, 1)
     ros = RandomOverSampler(random_state=42)
     X_res, y_res = ros.fit_resample(X, y)
-    df = pd.DataFrame({'summarydescription': np.array(X_res.flatten()), 'label': np.array(y_res.flatten())})
+    df = pd.DataFrame({'label': np.array(y_res.flatten()), 'summarydescription': np.array(X_res.flatten())})
     return df
 
 
