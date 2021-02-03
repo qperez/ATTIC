@@ -467,7 +467,7 @@ def cross_val(training_path, dataset_type):
 
         best_model = BERT().to(device)
 
-        load_checkpoint(training_path + str(i) + os.path.sep + "model", best_model)
+        load_checkpoint(training_path + str(i) + os.path.sep + "model" + os.path.sep + "model.pth", best_model)
 
         evaluate(model=best_model, test_loader=test_iter,
                  file_path=training_path + str(i) + os.path.sep + "evaluate" + os.path.sep + "evaluate.pth")
