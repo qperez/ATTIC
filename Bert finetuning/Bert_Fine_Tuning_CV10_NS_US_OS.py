@@ -1,252 +1,55 @@
-# Libraries
-
+### IMPORT Libraries ###
 import matplotlib.pyplot as plt
 import pandas as pd
 import torch
-import os
-from os import path
-import codecs
-import json
-import os
-import numpy
-import shutil
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import RandomOverSampler
-import warnings
-import numpy as np
-
-warnings.filterwarnings('ignore')
-
 # Preliminaries
-
 from torchtext.data import Field, TabularDataset, BucketIterator, Iterator
 
 # Models
-
 import torch.nn as nn
 from transformers import BertTokenizer, BertForSequenceClassification
 
 # Training
-
 import torch.optim as optim
 
 # Evaluation
-
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import seaborn as sns
+### END IMPORT Libraries ###
 
-#######################################################################################################################
-#######################################################################################################################
-
-######################################## DATA-SET CREATION ############################################################
-
-
-boost_summary = 3
-project_keys = ["HTTPCLIENT", "LUCENE", "JCR"]
-random_seed = 42
-
-data_directory = ".." + os.path.sep + "Temp_Data_Files"
-if not os.path.exists(data_directory):
-    os.makedirs(data_directory)
-
-
-def load_data():
-    raw_data = []
-    data_directory = ".." + os.path.sep + "data"
-    for filename in os.listdir(data_directory):
-        with codecs.open(data_directory + os.path.sep + filename, "r", "utf-8") as fin:
-            raw_data += json.load(fin)
-    return raw_data
-
-
-def get_corpus_labels(raw_data):
-    # Corpus building.
-    corpus = []
-    labels = []
-    n_bug = 0
-    for n_file in raw_data:
-
-        # txt = ""
-        # for i in range(boost_summary):
-        # txt += n_file["summary"] + " "
-
-        # corpus.append(txt + " " + n_file["description"])
-        corpus.append(n_file["summary"] + " " + n_file["description"])
-        labels.append(n_file["label"])
-        if n_file["label"] == "BUG":
-            n_bug += 1
-    print(f"{n_bug} BUG / {len(labels)} NBUG \n")
-    return corpus, labels
-
-
-def Undersampling(dataFrame):
-    X = np.array(dataFrame["summmarydescription"])
-    y = np.array(dataFrame["label"])
-    X = X.reshape(-1, 1)
-    y = y.reshape(-1, 1)
-    rus = RandomUnderSampler(random_state=42)
-    X_res, y_res = rus.fit_resample(X, y)
-    df = pd.DataFrame({'label': np.array(y_res.flatten()), 'summarydescription': np.array(X_res.flatten())})
-    return df
-
-
-def Oversampling(dataFrame):
-    X = np.array(dataFrame["summmarydescription"])
-    y = np.array(dataFrame["label"])
-    X = X.reshape(-1, 1)
-    y = y.reshape(-1, 1)
-    ros = RandomOverSampler(random_state=42)
-    X_res, y_res = ros.fit_resample(X, y)
-    df = pd.DataFrame({'label': np.array(y_res.flatten()), 'summarydescription': np.array(X_res.flatten())})
-    return df
-
-
-def create_files_for_Kfold(nb_csv, df_test, SamplingMode):
-    if SamplingMode == 0:
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "NotSampled"
-    if SamplingMode == 1:
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "UnderSampled"
-    if SamplingMode == 2:
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "OverSampled"
-
-    for i in range(nb_csv):
-        if not os.path.exists(data_directory + os.path.sep + "Dataset_KFold_" + str(i)):
-            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i))
-            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "model")
-            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "metrics")
-            os.makedirs(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "evaluate")
-            df_test.to_csv(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "test.csv",
-                           index=False)
-
-    csv_file_list = []
-    for i in range(nb_csv):
-        csv_file_list.append(
-            data_directory + os.path.sep + "Kfold_csv_files" + os.path.sep + "data_fold_" + str(i) + ".csv")
-
-    for i in range(nb_csv):
-
-        list_of_dataframes = []
-
-        for filename in csv_file_list:
-
-            if filename[-5] != str(i):
-                list_of_dataframes.append(pd.read_csv(filename))
-
-            else:
-                valid_df = pd.read_csv(filename)
-                valid_df.to_csv(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "valid.csv",
-                                index=False)
-
-        train_df = pd.concat(list_of_dataframes)
-        train_df.to_csv(data_directory + os.path.sep + "Dataset_KFold_" + str(i) + os.path.sep + "train.csv",
-                        index=False)
-
-        del train_df
-
-
-def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size=0.85, SamplingMode=0):
-    print("starting creation of datasets for cross validation")
-    data = {'label': labels, 'summmarydescription': corpus, }
-    df = pd.DataFrame(data)
-    if relabel:
-        df['label'] = (df['label'] == 'BUG').astype('int')
-    if SamplingMode == 0:
-
-        print('creating dataset of : ' + str(df.shape))
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "NotSampled"
-        if not os.path.exists(data_directory):
-            os.makedirs(data_directory)
-        data_directory = data_directory + os.path.sep + "Kfold_csv_files"
-
-    if SamplingMode == 1:
-        df = Undersampling(df)
-        print('creating undersampled dataset of : ' + str(df.shape))
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "UnderSampled"
-        if not os.path.exists(data_directory):
-            os.makedirs(data_directory)
-        data_directory = data_directory + os.path.sep + "Kfold_csv_files"
-
-    if SamplingMode == 2:
-        df = Oversampling(df)
-        print('creating oversampled dataset of : ' + str(df.shape))
-        data_directory = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep + "OverSampled"
-        if not os.path.exists(data_directory):
-            os.makedirs(data_directory)
-        data_directory = data_directory + os.path.sep + "Kfold_csv_files"
-
-    if not os.path.exists(data_directory):
-        os.makedirs(data_directory)
-    df_train = df.sample(frac=train_set_size, random_state=random_seed)
-    df_test = df.drop(df_train.index)
-
-    file_name = data_directory + os.path.sep + "data_train.csv"
-    df_train.to_csv(file_name, index=False)
-    file_name = data_directory + os.path.sep + "data_test.csv"
-    df_test.to_csv(file_name, index=False)
-
-    sizes = []
-    size = len(df_train.index) // nb_csv
-    rest = len(df_train.index) % nb_csv
-    for i in range(nb_csv):
-        sizes.append(size)
-
-    for i in range(rest):
-        sizes[i] += 1
-
-    for i in range(nb_csv):
-        df_i = df_train.sample(n=sizes[i], random_state=random_seed)
-        df_train = df_train.drop(df_i.index)
-
-        file_name = data_directory + os.path.sep + "data_fold_" + str(i) + ".csv"
-        df_i.to_csv(file_name, index=False)
-
-    create_files_for_Kfold(nb_csv, df_test, SamplingMode)
-
-
-corpus, labels = get_corpus_labels(load_data())
-create_csv_for_Kfold(corpus, labels, SamplingMode=2)
-create_csv_for_Kfold(corpus, labels, SamplingMode=1)
-create_csv_for_Kfold(corpus, labels, SamplingMode=0)
-
-#######################################################################################################################
-#######################################################################################################################
-
-############################################### BERT FINE-TUNING ######################################################
-print("starting fine tuning")
-
+# TODO: device étant une constante pour la clareté du message preférer les une font MAJ
+# TODO: DEVICE = ...
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
 
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
-def init(TRAIN_FILE, VALID_FILE, TEST_FILE):
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+# Model parameter
+MAX_SEQ_LEN = 128
+PAD_INDEX = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
+UNK_INDEX = tokenizer.convert_tokens_to_ids(tokenizer.unk_token)
 
-    # Model parameter
-    MAX_SEQ_LEN = 128
-    PAD_INDEX = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
-    UNK_INDEX = tokenizer.convert_tokens_to_ids(tokenizer.unk_token)
+# Fields
 
-    # Fields
+label_field = Field(sequential=False, use_vocab=False, batch_first=True, dtype=torch.float)
+text_field = Field(use_vocab=False, tokenize=tokenizer.encode, lower=False, include_lengths=False, batch_first=True,
+                   fix_length=MAX_SEQ_LEN, pad_token=PAD_INDEX, unk_token=UNK_INDEX)
+fields = [('label', label_field), ('summarydescription', text_field)]
 
-    label_field = Field(sequential=False, use_vocab=False, batch_first=True, dtype=torch.float)
-    text_field = Field(use_vocab=False, tokenize=tokenizer.encode, lower=False, include_lengths=False, batch_first=True,
-                       fix_length=MAX_SEQ_LEN, pad_token=PAD_INDEX, unk_token=UNK_INDEX)
-    fields = [('label', label_field), ('summarydescription', text_field)]
+# TabularDataset
 
-    # TabularDataset
+train, valid, test = TabularDataset.splits(path='', train='train.csv', validation='valid.csv',
+                                           test='test.csv', format='CSV', fields=fields, skip_header=True)
 
-    train, valid, test = TabularDataset.splits(path='', train=TRAIN_FILE, validation=VALID_FILE,
-                                               test=TEST_FILE, format='CSV', fields=fields, skip_header=True)
+# Iterators
 
-    # Iterators
-
-    train_iter = BucketIterator(train, batch_size=10, device=device, train=True)
-    valid_iter = BucketIterator(valid, batch_size=10, device=device, train=True)
-    test_iter = Iterator(test, batch_size=10, device=device, train=False, shuffle=False, sort=False)
-
-    return train_iter, valid_iter, test_iter
+train_iter = BucketIterator(train, batch_size=10, device=device, train=True)
+valid_iter = BucketIterator(valid, batch_size=10, device=device, train=True)
+test_iter = Iterator(test, batch_size=10, device=device, train=False, shuffle=False, sort=False)
 
 
+# TODO: même si la classe est toute petite il serait préférable de la placer dans une classe python à part
+# TODO: cette classe
 class BERT(nn.Module):
 
     def __init__(self):
@@ -260,9 +63,8 @@ class BERT(nn.Module):
 
         return loss, text_fea
 
-
+### BEGIN Functions ####
 # Save and Load Functions
-
 def save_checkpoint(save_path, model, valid_loss):
     if save_path is None:
         return
@@ -297,17 +99,6 @@ def save_metrics(save_path, train_loss_list, valid_loss_list, global_steps_list)
     print(f'Model saved to ==> {save_path}')
 
 
-def save_pred(save_path, y_pred, y_true):
-    if save_path is None:
-        return
-
-    state_dict = {'y_pred': y_pred,
-                  'y_true': y_true}
-
-    torch.save(state_dict, save_path)
-    print(f'Pred saved to ==> {save_path}')
-
-
 def load_metrics(load_path):
     if load_path is None:
         return
@@ -319,18 +110,17 @@ def load_metrics(load_path):
 
 
 # Training Function
-
 def train(model,
           optimizer,
-          train_loader,
-          valid_loader,
-          num_epochs,
-          file_path_model,
-          file_path_metrics,
           criterion=nn.BCELoss(),
+          train_loader=train_iter,
+          valid_loader=valid_iter,
+          num_epochs=5,
+          eval_every=len(train_iter) // 2,
+          file_path='',
           best_valid_loss=float("Inf")):
+
     # initialize running values
-    eval_every = len(train_loader) // 2
     running_loss = 0.0
     valid_running_loss = 0.0
     global_step = 0
@@ -340,8 +130,9 @@ def train(model,
 
     # training loop
     model.train()
-    for epoch in range(num_epochs):
+    for epoch in range(num_epochs)
         for (label, summarydescription), _ in train_loader:
+
             label = label.type(torch.LongTensor)
             label = label.to(device)
             summarydescription = summarydescription.type(torch.LongTensor)
@@ -366,6 +157,9 @@ def train(model,
                     for (label, summarydescription), _ in valid_loader:
                         label = label.type(torch.LongTensor)
                         label = label.to(device)
+                        # TODO: peut etre factorisé en :
+                        # TODO: summarydescription.type(torch.LongTensor).to(device)
+                        # TODO: cela vous évite la réaffection
                         summarydescription = summarydescription.type(torch.LongTensor)
                         summarydescription = summarydescription.to(device)
                         output = model(summarydescription, label)
@@ -393,16 +187,15 @@ def train(model,
                 # checkpoint
                 if best_valid_loss > average_valid_loss:
                     best_valid_loss = average_valid_loss
-                    save_checkpoint(file_path_model, model, best_valid_loss)
-                    save_metrics(file_path_metrics, train_loss_list, valid_loss_list, global_steps_list)
+                    save_checkpoint('model' + '/' + 'model.pth', model, best_valid_loss)
+                    save_metrics('metrics' + '/' + 'metrics.pth', train_loss_list, valid_loss_list, global_steps_list)
 
-    save_metrics(file_path_metrics, train_loss_list, valid_loss_list, global_steps_list)
+    save_metrics('metrics' + '/' + 'metrics.pth', train_loss_list, valid_loss_list, global_steps_list)
     print('Finished Training!')
-
 
 # Evaluation Function
 
-def evaluate(model, test_loader, file_path):
+def evaluate(model, test_loader):
     y_pred = []
     y_true = []
 
@@ -419,8 +212,7 @@ def evaluate(model, test_loader, file_path):
             y_pred.extend(torch.argmax(output, 1).tolist())
             y_true.extend(label.tolist())
 
-    save_pred(save_path=file_path, y_pred=y_pred, y_true=y_true)
-    print('Classification Report :')
+    print('Classification Report:')
     print(classification_report(y_true, y_pred, labels=[1, 0], digits=4))
 
     cm = confusion_matrix(y_true, y_pred, labels=[1, 0])
@@ -434,46 +226,31 @@ def evaluate(model, test_loader, file_path):
 
     ax.xaxis.set_ticklabels(['NBug', 'Bug'])
     ax.yaxis.set_ticklabels(['NBug', 'Bug'])
+### END Functions ###
+
+# TODO : évitez de mixer des bouts de main au milieu de 2 fonctions
+# TODO : j'ai volontairement replacé la fonction evalutae() plus haut
+model = BERT().to(device)
+optimizer = optim.Adam(model.parameters(), lr=2e-5)
+
+train(model=model, optimizer=optimizer)
 
 
-training_path = ".." + os.path.sep + "Temp_Data_Files" + os.path.sep
+train_loss_list, valid_loss_list, global_steps_list = load_metrics('metrics'+'/'+'/metrics.pth')
+plt.plot(global_steps_list, train_loss_list, label='Train')
+plt.plot(global_steps_list, valid_loss_list, label='Valid')
+plt.xlabel('Global Steps')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
 
 
-def cross_val(training_path, dataset_type):
-    training_path += (dataset_type + os.path.sep + "Dataset_KFold_")
-    print("STARTING CROSS VALIDATION FOR " + dataset_type + " DATASET" + '\n')
-    for i in range(10):
-        print("STARTING WITH FOLD NB " + str(i) + '\n')
-        model = BERT().to(device)
-        optimizer = optim.Adam(model.parameters(), lr=2e-5)
+# TODO: pour avoir quelque chose de vraiment jolie n'hésitez pas à utiliser le main pythonien
+#if __name__ == '__main__':
+#    mon code du programme principal.....
 
-        train_iter, valid_iter, test_iter = init(
-            TRAIN_FILE=training_path + str(i) + os.path.sep + "train.csv",
-            VALID_FILE=training_path + str(i) + os.path.sep + "valid.csv",
-            TEST_FILE=training_path + str(i) + os.path.sep + "test.csv")
-        train(model=model, optimizer=optimizer, train_loader=train_iter, valid_loader=valid_iter, num_epochs=5,
-              file_path_metrics=training_path + str(i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth",
-              file_path_model=training_path + str(i) + os.path.sep + "model" + os.path.sep + "model.pth")
+best_model = BERT().to(device)
 
-        train_loss_list, valid_loss_list, global_steps_list = load_metrics(
-            training_path + str(i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth")
+load_checkpoint('model' + '/' + 'model.pth', best_model)
 
-        plt.plot(global_steps_list, train_loss_list, label='Train')
-        plt.plot(global_steps_list, valid_loss_list, label='Valid')
-        plt.xlabel('Global Steps')
-        plt.ylabel('Loss')
-        plt.legend()
-        plt.show()
-
-        best_model = BERT().to(device)
-
-        load_checkpoint(training_path + str(i) + os.path.sep + "model" + os.path.sep + "model.pth", best_model)
-
-        evaluate(model=best_model, test_loader=test_iter,
-                 file_path=training_path + str(i) + os.path.sep + "evaluate" + os.path.sep + "evaluate.pth")
-
-
-cross_val(training_path, 'NotSampled')
-cross_val(training_path, 'UnderSampled')
-cross_val(training_path, 'OverSampled')
-
+evaluate(best_model, test_iter)
