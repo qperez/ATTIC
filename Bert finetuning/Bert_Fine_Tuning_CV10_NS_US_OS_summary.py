@@ -425,17 +425,17 @@ def evaluate(model, test_loader, file_path):
     print('Classification Report :')
     print(classification_report(y_true, y_pred, labels=[1, 0], digits=4))
 
-    cm = confusion_matrix(y_true, y_pred, labels=[1, 0])
-    ax = plt.subplot()
-    sns.heatmap(cm, annot=True, ax=ax, cmap='Blues', fmt="d")
+    #cm = confusion_matrix(y_true, y_pred, labels=[1, 0])
+    #ax = plt.subplot()
+    #sns.heatmap(cm, annot=True, ax=ax, cmap='Blues', fmt="d")
 
-    ax.set_title('Confusion Matrix')
+    #ax.set_title('Confusion Matrix')
 
-    ax.set_xlabel('Predicted Labels')
-    ax.set_ylabel('True Labels')
+    #ax.set_xlabel('Predicted Labels')
+    #ax.set_ylabel('True Labels')
 
-    ax.xaxis.set_ticklabels(['NBug', 'Bug'])
-    ax.yaxis.set_ticklabels(['NBug', 'Bug'])
+    #ax.xaxis.set_ticklabels(['NBug', 'Bug'])
+    #ax.yaxis.set_ticklabels(['NBug', 'Bug'])
 
 
 training_path = "Temp_Data_Files" + os.path.sep
@@ -475,7 +475,7 @@ def cross_val(training_path, dataset_type):
                  file_path=training_path + str(i) + os.path.sep + "evaluate" + os.path.sep + "evaluate.pth")
 
 
-cross_val(training_path, 'NotSampled')
+#cross_val(training_path, 'NotSampled')
 cross_val(training_path, 'UnderSampled')
 cross_val(training_path, 'OverSampled')
 

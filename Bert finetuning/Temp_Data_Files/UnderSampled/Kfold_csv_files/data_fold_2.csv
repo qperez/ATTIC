@@ -1,0 +1,476 @@
+label,summmarydescription
+0,"Fix PayloadProcessorProvider to no longer use Directory for lookup, instead AtomicReader"
+0,Text extraction may congest thread pool in the repository
+0,Add SimpleText codec
+0,Separate SegmentReaders (and other atomic readers) from composite IndexReaders
+0,Indexing performance tests with realtime branch
+0,Reduce memory usage of transient nodes
+0,Redesign SPI observation
+1,"UserManagement: IndexNodeResolver.findNodes(..... , nonExact) fails to find values containing backslash"
+0,remove IndexSearcher.close
+0,Query Stats should use the TimeSeries mechanism
+0,Highlighter Documentation updates
+1,"DatabaseJournal.checkSchema generates ""Cannot call commit when autocommit=true"" Exception"
+0,Confusing Javadoc in Searchable.java
+1,'100-continue' response times out unexpectedly
+0,Remove deprecated methods in PriorityQueue
+0,[PATCH] Avoid checking for TermBuffer in SegmentTermEnum#scanTo
+0,ItemImpl#validateTransientItems: Incomplete validation of mandatory child item
+1,Node's childNodes out of sync after unsuccessful save()
+1,Jackrabbit fails to shutdown properly when tomcat is shutting down
+0,Best effort merge if concurrent modifications include changes to mixin types
+0,[PATCH] Make a getter for SortField[] fields in org.apache.lucene.search.Sort
+0,Disable Users
+1,JNDI data sources with various PersistenceManager: wrong default values
+1,New BufferedIndexOutput optimization fails to update bufferStart
+1,search.jsp doesn't handle utf-8 parameters correctly
+0,Add support for distributed stats
+1,"SSL verification occurs before setSoTimeout, which can lead to hangs"
+0,OCM test are too verbose
+1,UserManager.getAuthorizable() may fail with InvalidQueryException
+0,Add basic I/O counters to query handler
+1,Read permission on parent node required to access an item's definition
+1,Importer drops jcr:xmlcharacters fields after a large jcr:xmlcharacters entry
+1,UUID compareTo and hashCode
+0,Review the use of BaiscHttpParams and HttpProtocolProcessor in HttpClient
+0,NamespaceRegistryTest.testRegisterNamespace test assumptions
+1,jcr2spi spi2dav getProperties returns only cached properties
+0,Proxy tunneling/auth with CONNECT for non-HTTP protocols
+1,TestIndexWriterExceptions random failure: AIOOBE in ByteBlockPool.allocSlice
+0,Fix CommitIndexTask to also commit IndexReader changes
+0,substitute for URLUtils.java
+1,ItemStateMap warnings during node type changes
+0,BundleDumper to analyze broken bundles
+0,Checks for optional features in test cases are wrong
+0,Improve logging of Session.save() to trace back root cause of externally modified nodes
+1,Exception shouldn't be thrown for unsupported authentication method
+0,Move listeners from item state to item state managers
+0,Rename IOUtils.close methods
+0,Exception may get lost in WorkspaceManager.OperationVisitorImpl.execute()
+0,nuke IndexSearcher(directory)
+1,ArrayIndexOutOfBoundsException: ConcurrentCache
+1,DBFileSystem MySQL DDL not compatible with pre-5.0 versions
+1,adding docs with large (binary) fields of 5mb causes OOM regardless of heap size
+0,add numDocs() and maxDoc() methods to IndexWriter; deprecate docCount()
+1,ConcurrentModificationException in WebDAV UPDATE
+0,Add getVersion method to IndexCommit
+0,Add deleteAllDocuments() method to IndexWriter
+0,Rename package names
+1,Jcr-server: Parsing NodeTypeProperty not compliant with definition
+0,SQL2 joins on empty sets are not efficient
+0,Allow separate control over whether body is stored or analyzed
+0,[PATCH] add term index interval accessors
+0,"If test has methods with @Ignore, we should print out a notice"
+0,Add a LATENT FieldSelectorResult
+1,Exception executing SQL2/JQOM with non-admin session
+1,"after enabling access manager, I can't createNode and setProperty without a node.save in the middle"
+0,Make getAttribute(Class attClass) Generic
+0,MANIFEST.MF cleanup (main jar and luci customizations)
+1,NullPointerException in ClassDescriptor
+1,Identifier paths for inexistent items throw exception
+1,FastVectorHighlighter: small fragCharSize can cause StringIndexOutOfBoundsException 
+1,InstantiatedTermEnum#skipTo(Term) throws ArrayIndexOutOfBoundsException on empty index
+0,request.abort() should interrupt thread waiting for a connection
+0,Expose namespace registry via workspace instead via session in spi2jcr
+0,EasySimilarity to interpret document length as float
+0,Java 1.4 compile error in Eclipse
+1,SegmentMerger doesn't set payload bit in new optimized code
+0,"Handle virtual hosts, relative urls, multi-homing"
+1,"Cookie.java blowing up on cookies from ""country code"" domains"
+0,DbClusterTest failure due to network configuration
+0,Jcr-Server: missing-auth-mapping init parameter should have option for GuestCredential login
+1,"setProperty(""name"", new Value[0], PropertyType.LONG) loses property type"
+0,Allow benchmark tasks from alternative packages
+0,Stack traces from failed tests are messed up on ANT 1.7.x
+0,Remove unnecessary TestAll classes in jcr-commons
+0,FIXME in src/test/org/apache/lucene/IndexTest.java
+0,Allow setting arbitrary objects on PerfRunData
+0,Some small javadocs/extra import fixes
+0,Jcr2spiRepositoryFactory: make class loading more robust
+0,Workspace{Copy|Move}VersionableTest assumptions on versioning
+0,"ShingleFilter: don't output all-filler shingles/unigrams; also, convert from TermAttribute to CharTermAttribute"
+0,GetMethod.getResponseBodyAsStream() .available() could return content-length
+0,Credentials ignored if realm specified in preemptive authentication
+0,Move Kuromoji to analysis.ja and introduce Japanese* naming
+0,full text search tests use incorrect character for escaping phrases
+1,Change value of 'Expect' header in org.apache.http.client.methods.HttpPost
+0,Improper EOL for text files on Windows
+0,JCR2SPI: several performance improvements pointed out by Findbugs
+1,MatchAllScorer calculateDocFilter() bug
+1,JCR-Server: IllegalArgumentException when retrieving DateHeader
+0,Remove jdk 1.4 restriction for jcr-tests
+0,WebDAV BIND support
+0,CanAddChildNodeCallWithNodeTypeTest.testDefinedAndLegalType() may fail if protected child node definition is picked
+1,[PATCH] Fix possible Null Ptr exception in ConnectionFactory
+0,"Allow QP subclasses to support Wildcard Queries with leading ""*"""
+0,Contribution: Efficient Sorting of DateField/DateTools Encoded Timestamp Long Values
+0,convert automaton to char[] based processing and TermRef / TermsEnum api
+1,Decompounders based on CompoundWordTokenFilterBase cannot be used with custom attributes
+1,QueryImpl result offSet must be considered after security class grant the item.
+1,ClassCastException when registering custom node by XML file
+0,"""reproduce with"" on test failure isn't right if you manually overrided anything"
+1,Infinite loop on NTLM authentication
+1,make spell checker test case work again
+1,AbstractHttpClient.determineTarget does not recognize target host correctly
+0,add infrastructure for longer running nightly test cases
+0,bad test assumptions in org.apache.jackrabbit.test.api.lock
+0,Provide Date Header Util Methods
+0,allow cache to be configured as a non-shared (private) cache
+0,Developer documentation
+1,Error on query initialization - intermittent
+1,Possible rare thread hazard in IW.commit
+1,"DocMakers setup for the ""docs.dir"" property fails when passing an absolute path."
+0,rename optimize to a less cool-sounding name
+0,Improve read/write concurrency
+0,Make Jackrabbit repository DTD easier to extend
+0,Deprecate / Remove DutchAnalyzer.setStemDictionary
+0,Add test to check maven artifacts and their poms
+0,expose PM for versioning manager so that the consistency check can be run from test cases
+0,RAMInputStream and RAMOutputStream without further buffering
+0,Improve Memory Consumption for merging DocValues SortedBytes variants
+0,Releasing a connection is unconfirmed
+1,BeanConfig may incorrectly throw ConfigurationException
+1,getScheme() and getPort() return wrong defaults for HttpsURL
+0,Add maven-eclipse-plugin properties to project.xml for easier configuration in IDE
+0,Changes.html not explicitly included in release
+0,Deprecate RepositoryService.getNodeInfo method
+0,Remove synchronization in CompoundFileReader
+0,Add support for tablespaces to Oracle related classes
+0,"Add support for terms in BytesRef format to Term, TermQuery, TermRangeQuery & Co."
+1,Deadlock in IndexWriter
+1,QueryStat getPopularQueries doesn't set the proper position
+0,"NodeTest.testAddNodeConstraintViolationExceptionUndefinedNodeType relies on addNode(name, ""nt:base"")"
+1,NPE Thrown when two Cluster Nodes are hitting the same underlying database.
+1,CartesianPolyFilterBuilder doesn't properly account for which tiers actually exist in the index 
+1,TestBytesRefHash#testCompact is broken
+1,IdleConnectionHandler can leave closed connections in a inconsistent state
+1,iterative removal of same-name sibling nodes might under certain circumstances throw unexpected exceptions
+0,WorkspaceRestoreTest extends RestoreTest
+0,Manage Lucene FieldCaches per index segment
+1,PdfTextFilter may leave parsed document open in case of errors
+1,Errors during concurrent session import of nodes with same UUIDs
+0,Sep codec should store less in terms dict
+0,Jenkins trunk tests (nightly only) fail quite often with OOM in Automaton/FST tests
+0,Tests fail with NoClassDefFoundError: org/w3c/dom/ranges/DocumentRange
+1,RTF text extractor fails on Java 1.4 in some environments
+0,clean up serialization in the codebase
+0,Some unit tests are not well configured
+1,WriteLineDocTask incorrectly normalizes fields
+0,Provide more Example Code
+0,Improved join query performance
+0,Re-add SorterTemplate and use it to provide fast ArraySorting and replace BytesRefHash sorting
+0,Encapsulate RepositoryHelper field
+1,MultipartPost closes input stream
+1,CookieSpecBase.domainMatch() leaks cookies to 3rd party domains
+1,Jackrabbit's lucene based query implementation does not check property constraints on the root node.
+0,Selective disabling of checks in ItemValidator
+0,Provide means for exception handling for QueryNodeVisitor implementations
+0,Small speedups to DocumentsWriter
+0,Avoid docFreq calls for non-fulltext queries
+1,impl.conn.Wire uses String.getBytes() which depends on the default charset
+0,revise Scorer visitor API
+0,Remove deprecated classes in jackrabbit-core
+0,AbstractQueryTest.evaluateResultOrder() should fail if workspace does not contain enough content
+0,[PATCH] fixes for gcj target.
+0,Make FieldSelector usable from Searchable 
+1,BasicOperations.concatenate creates invariants
+1,AccessControlProvider#getEffectivePolicies for a set of principals does not include repo-level ac
+0,Default namespaces in JackrabbitNodeTypeManager.registerNodetypes
+0,URI uses  sun.security.action.GetPropertyAction
+0,Allow to disable referential integrity checking for workspace
+0,GData Server MileStone 1 Revision
+1,Repository holds onto Session instance after logout
+0,JcrRemotingServlet should interpolate system properties in the home init-param
+0,New Jackrabbit site skin
+1,Cannot move a first-level node
+0,TermVectorMapper.setDocumentNumber()
+1,jackrabbit wrongly think nodetype is changed on nodetype re-registration
+0,Exclude JavaCC-generated code from static analysis
+1,CachingHttpClient returns a 411 respones when executing a POST (HttpPost) request 
+0,HttpClient javadocs need improving
+1,NPE in ConsolidatingChangeLog for id base NodeId
+0,optimize fuzzytermsenum per-segment
+0,Documentation for tii and tis files seems to be out of sync with code
+0,Documentation improvements for 1.9 release
+0,Create org.apache.jackrabbit.core.id
+0,Move tika-parsers dependency to deployment packages
+0,TermScorer caches values unnecessarily
+1,Suggested Patches to MultiPhraseQuery and QueryTermExtractor (for use with HighLighter)
+0,Remaining contrib testcases should use Version based ctors instead of deprecated ones
+1,Group#getMembers may list inherited members multiple times
+1,Handle URIs with path component null
+1,Session holds LockToken after removeLockToken in XA Environment
+0,Remove deprecated Field.Store.COMPRESS
+1,HttpOptions.getAllowedMethods expects single Allow header
+0,Remove remaining deprecations from indexer package
+1,Node.getPath() will corrupt the session
+1,BundleFsPersistenceManager has no property called: minBlobSize
+0,Behavior on hard power shutdown
+0,Remove deprecated methods in CompoundTokenFilters
+1,Token authentication parameters are not loaded from JAAS configuration.
+0,Add method getID to interface ItemInfo
+0,remove RoutedRequest from ClientRequestDirector interface
+1,Session.import() failes to resolve propert property definition in some cases
+0,Permit using different tablespaces for tables and indexes with Oracle
+0,Spellchecker uses default IW mergefactor/ramMB settings of 300/10
+1,jcr2spi NodeEntryImpl.getPath() blows stack due to getIndex() calling itself
+0,"Exclude system index for queries that restrict the result set to nodetypes not availble in the ""jcr:system"" subtree"
+0,DateUtils should cache SimpleDateFormat
+0,Database Data Store: clean up the code
+0,Investigate ways to compile the refactored jcr-mapping for Java 1.4
+1,CMS fails to cleanly stop threads
+1,ArrayIndexOutOfBounds Exception on invalid content-length
+0,GroupImp#getMembers and #getDeclaredMembers should return RangeIterator
+0,Update copyright years in READMEs and NOTICEs
+0,"TermVectorAccessor, transparent vector space access "
+0,Genericize DirectIOLinuxDir -> UnixDir
+0,new CachingNamespaceResolver introduces dependency from commons-jackrabbit to commons-collections
+0,"pass liveDocs Bits down in scorercontext, instead of Weights pulling from the reader "
+1,"Inconsistencies if ""everyone"" Group is created by User Management"
+0,"Scorer.explain is deprecated but abstract, should have impl that throws UnsupportedOperationException"
+1,Test case failure for testConnTimeout
+0,Cutover remaining usage of pre-flex APIs
+0,Allow to override LockManager creation
+0,[patch] remove bogus test
+0,need to add a default constructor for Cookie
+1,SearcherManager misses to close IR if manager is closed during reopen
+1,Mixins as supertypes do not appear to be queryable
+1,Evict fixed NodePropBundle from cache
+1,SystemSessions created for GarbageCollector are not logged out of
+0,RFE: Make Credentials Serializable
+1,spi2dav: Observation's user data not property handled
+0,Expose FilteredTermsEnum from MTQ 
+0,[PATCH] Refactoring of SpanScorer
+0,TCK: NamespaceRegistryTest#testRegisterNamespace doesn't remove node in new namespace
+0,Authorizable#getProperty and #setProperty should deal with relativePath 
+1,add workaround for jre breakiterator bugs
+1,SimpleSpanFragmenter can create very short fragments
+1,IndexReader.setNorms is no op if one of the field instances omits norms
+1,maxFieldLength actual limit is 1 greater than expected value.
+0,Remove/deprecate IndexReader.undeleteAll
+1,Trouble undeploying jackrabbit-webapp from Tomcat
+0,JavaCC grammar generation to ${maven.build.dir}/generated-src
+1,Cluster: Node type register/unregister deadlock
+0,Basic tool for checking & repairing an index
+1,insufficient privileges
+0,Fix javadocs after deprecation removal
+0,Cut over SpanQuery#getSpans to AtomicReaderContext
+0,Some improvements to CMS
+0,First cut at column-stride fields (index values storage)
+0,[CONTRIB] SSL authenticating protocol socket factory
+0,IndexWriter.deleteDocuments bug
+0,Promote solr's PrefixFilter into Java Lucene's core
+1,problems with IR's readerFinishedListener
+1,httpClient failed to reconnect after keep-alive connection timed out
+1,ConstraintSplitter.getSelectorNames doesn't support FullTextSearch constraints
+0,Sandbox remaining contrib queries
+1,Startup fails if clustered jackrabbit is upgrade from 1.4.4 to 1.5
+0,Rename Field.Index.UN_TOKENIZED/TOKENIZED/NO_NORMS
+0,Unclosed threads in Jackrabbit
+0,Field tokenStream should be usable with stored fields.
+0,OpenDocument files missing in mimetypes.properties
+1,NullPointerException in CompoundFileReader
+0,BooleanScorer.nextDoc should also delegate to sub-scorer's bulk scoring method
+0,JSR 283 lifecycle management
+0,Allow use of compact DocIdSet in CachingWrapperFilter
+1,DocViewSAXEventGenerator produces invalid SAX stream
+0,test granularity for calendar (date) properties
+0,"BalancedSegmentMergePolicy, contributed from the Zoie project for realtime indexing"
+0,add ASCIIFoldingFilter and deprecate ISOLatin1AccentFilter
+1,QPropertyDefinitionImpl.equals() is implemented incorrectly 
+1,CachingIndexReader: NullPointerException initializing parents cache
+1,ArrayIndexOutOfBoundsException when using MultiFieldQueryParser
+0,Degrade gracefully when reading invalid date values
+0,Integrate IndexReader with IndexWriter 
+0,TokenFilter should implement reset()
+0,Publish source/javadoc jar files to the Maven repository
+1,"If you ""flush by RAM usage"" then IndexWriter may over-merge"
+0,make sure no static loggers are used
+1,Contrib RMI: NotSerializableException
+0,common interface for HttpRoute and RouteTracker
+1,Optimize runs forever if you keep deleting docs at the same time
+0,A faster JFlex-based replacement for StandardAnalyzer
+1,finalize()-methods of FSDirectory.FSIndexInput and FSDirectory.FSIndexOutput try to close already closed file
+1,Query for name literal without namespace fails
+0,Automaton Query/Filter (scalable regex)
+1,Query dump failed with deep query tree
+1,ConcurrentModificationException during logout
+0,Upgrade to SLF4J 1.3
+0,extend LevenshteinAutomata to support transpositions as primitive edits
+0,"IfHeader: Incorrect test for parsing keyword ""not"" in parseIfList"
+0,"build.xml: result of ""dist-src"" should support ""build-contrib"""
+1,NodeDefinitionTemplateImpl.setDefaultPrimaryTypeName(null) throws exception
+1,handling of expanded-form jcr names by node type *Template classes 
+1,MultipartPostMethod Holding File Stream Open?
+1,TCK: check for wrong repository descriptor. should be versioning instead of locking
+0,concurrent read-only access to a session
+0,Add the ability to disable inheriting ancestor ACLs
+0,Add read acessor for user data to SessionInfoImpl
+0,Some improvements to _TestUtil and its usage
+0,Spellchecker doesn't need to store ngrams
+0,Collapse Common module into Lucene core util
+0,"Performance fix, when deserializing large jcr:binary in ValueHelper.deserialize()"
+0,If IndexWriter hits OutOfMemoryError it should not commit
+0,gcj ant target doesn't work on windows
+0,Handling sub-domain cookies.
+0,Documentation bug.  The 2.4.1 query parser syntax wiki page says it is for 1.9
+0,cache should not generate stale responses to requests explicitly requesting first-hand or fresh ones
+0,Maintain norms in a single file .nrm
+0,Change QueryParser to use ConstantScoreRangeQuery in preference to RangeQuery by default
+1,SQL2 Join with OR clause still has some issues
+1,SetCookie / DateParser failing to parse non-standard date format
+0,DatabaseJournal needs connection reestablishment logic
+0,Jcr-Server: useful output upon GET to root- and workspace-resources
+0,Update copyright year to 2009
+1,Stale connection check does not work with IBM JSSE/JRE
+1,MemoryFileSystem.deleteFolder deletes all folders starting with this name 
+0,Confusing code line
+1,highlighter problems with overlapping tokens
+0,[PATCH] FuzzyTermEnum optimization and refactor
+0,upgrade contrib/ant's tidy.jar
+0,It's not possible to register event listeners that filters on mixin supertypes
+0,misleading contrib/tck-webapp/...RepositoryServlet javadoc
+1,Duplicate attribute in BeanDescriptor and CollectionDescriptor
+0,separate java code from .jj file
+0,"terminology: source uses ""protected  property"" for something that only only indirectly has to do with that term"
+0,"Architecture Diagrams needed for Lucene, Solr and Nutch"
+0,Minor refactoring to IndexFileNameFilter
+1,DecompressingEntity not calling close on InputStream retrieved by getContent
+0,Evaluate if membershipcache (JCR-2703) obsoletes the cache in DefaultPrincipalProvider
+1,Deadlock on version operations in a clustered environment
+0,"Make ""boolean readOnly"" a required arg to IndexReader.open"
+0,Test must not fail if mixin cannot be added
+1,"InvalidItemStateException when attempting concurrent, non conflicting writes"
+0,"Create ""quick start"" developer bundles for model 1,2,3 deployment"
+1,WebDAV/DaveX Servlets susceptible to CSRF Attacks
+1,ALLOW_CIRCULAR_REDIRECTS has no effect if references include query string
+0,Wrap SegmentInfos in public class 
+0,LineDocSource should assign stable IDs; docdate field should be NumericField
+0,thread pool implementation of parallel queries
+1,RamUsageEstimator.NUM_BYTES_ARRAY_HEADER and other constants are incorrect
+1,Do not increment revison while target workspace is not initialized
+0,[PATCH] small fixes to the new scoring.html doc
+0,ItemSaveOperation should not swallow stacktrace
+0,MultiStatus response for PROPPATCH (copied from JCR-175)
+1,NPE in TestNRTThreads
+1,Lazy Field Loading has edge case bug causing read past EOF
+0,Automatic staging of the non-Maven release artefacts
+0,extensibility patch for DavResourceImpl
+1,BQ provides an explanation on a non-match
+1,ArrayHits does not end properly when skipTo doesn't find document
+0,optimization in sending request
+1,"Node.addNode(String, String) doesn't prevent use of mixin types as primary type"
+0,shutdown of MultiThreadedHttpConnectionManager
+0,Remove oal.util.MapBackedSet (Java 6 offsers Collections.newSetFromMap())
+0,lock token validity
+0,Various places do map lookups in loop instead of using entrySet iterator
+0,Make IndexReader really read-only in Lucene 4.0
+1,The class from cotrub directory org.apache.lucene.index.IndexSplitter creates a non correct index
+0,User definable default headers support
+0,httpMethod.abort needed
+0,Jcr-Server: remove jcr depedency from dav-library
+0,Reduce log level in MultiIndex for deleting obsolete index
+0,Add automatic default configuration
+1,registration of new namespace does not respect existing session mappings
+0,Make ObjectIterator implement RangeIterator interface
+0,org.apache.jackrabbit.core.query.lucene.SearchIndex with in-memory lucene index
+0,Rename some remaining tests for new IndexReader class hierarchy
+0,Various small improvements to contrib/benchmark
+0,Use separate index for jcr:system tree
+0,"DefaultHttpRequestRetryHandler is not handling PUT as an idempotent method for retries, though RFC2616 section 9.1.2 clearly defines it to be one."
+1,BooleanScorer2 does not compile with ecj
+0,Implement TokenStream.end() in contrib TokenStreams
+1,3.1 fileformats out of date
+1,session.exportDocumentView() does not work with jaxb 2.1.x  UnmarshallerHandler
+1,EdgeNGramTokenFilter stops on tokens smaller then minimum gram size.
+0,make max size of CachingEntryCollector's cache configurable
+0,"When we move to java 1.5 in 3.0 we should replace all Interger, Long, etc construction with .valueOf"
+0,Missing derby dependency
+0,Jcr-Server: Avoid xml parsing if request body is missing
+0,Add configuration path to SynonymProvider
+0,Highlighter dist jar includes memory binary class files
+0,Logging into a repository with a big version history takes a long time
+0,Per thread DocumentsWriters that write their own private segments
+0,TestTimeLimitedCollector  shuold not fail if the testing machine happens to be slow
+0,Improve contrib/benchmark for testing near-real-time search performance
+0,update NOTICE.txt
+1,Removal of first version throws javax.jcr.ReferentialIntegrityException
+0,HTTP Client doesn't support multipart/related content-type
+0,Redesign NodeInfo.getReferences()
+0,Provide access to cluster records
+1,XMLTextExtractor returns an empty reader when encoding is unsupported
+1,occasional MergeException while indexing
+0,Analyzer for Latvian
+1,Deadlock: IndexWriter.addIndexes(IndexReader[])
+0,NTLM class registers Sun JCE implementation by default
+0,FileRevision should have a flag to control whether to sync the file on every write.
+0,Access cluster node id
+0,Documentation Error for FilteredTermEnum
+0,Refactoring of the Persistence Managers
+1,SegmentTermEnum.next() doesn't maintain prevBuffer at end
+0,Add toString() methods to QOM tree classes
+0,PostgreSQL support in clustering module
+0,ant generate-maven-artifacts target broken for contrib
+0,Typo in NodeTypeRegistry
+0,Fix NOTICE files to match consensus from legal team
+0,Improved background text extraction
+0,[PATCH] HttpClient#getHost & HttpClient#getPort methods are misleading
+1,ClusterNode not properly shutdown when repository has shutdown
+0,Consistency check/fix doesn't work with PSQL persistence manager
+0,First Steps document is outdated
+1,"DirectoryTaxonomyWriter can lose the INDEX_CREATE_TIME property, causing DirTaxoReader.refresh() to falsely succeed (or fail)"
+0,Jackrabbit performance test suite
+0,Improved log message: include path
+0,cache module should handle out-of-order validations properly and unconditionally refresh
+0,JSR 283: Identifier based event filtering
+0,javacc-maven-plugin version in jackrabbit-core pom file
+1,"When node is created and locked in same transaction, exception is thrown"
+0,default behaviour of useExpectHeader
+0,[Maven] Migrate checkstyle.properties to XML
+0,Create OSGi Bundles from jackrabbit-webdav and jackrabbit-jcr-server libraries
+1,[PATCH] ClassDescriptor.hasIdField uses faulty logic
+1,IndexDeletionPolicy.delete behaves incorrectly when deleting latest generation 
+0,add Galician analyzer
+0,RepositoryStatistics should be more flexible
+1,SSLSocketFactory.connectSocket(...) possible NPE
+0,Add path encoding to ISO9075
+0,don't reuse byte[] in IndexInput/Output for read/writeString
+0,UUIDDocId should check IndexReader using equals()
+0,ASCIIFoldingFilter: expose folding logic + small improvements to ISOLatin1AccentFilter
+0,Remove Searcher from Weight#explain
+0,[PATCH] queryParser.setOperator(int) should be made typesafe
+0,Allow for wildcard restriction in resource-based ACEs
+0,add suggester that uses shortest path/wFST instead of buckets
+0,some jcr-client tests fail if a server runs on localhost:80 
+1,SegmentMerger should assert .del and .s* files are not passed to createCompoundFile
+0,Create UAX29URLEmailAnalyzer: a standard analyzer that recognizes URLs and emails
+0,auto close idle connections
+1,NativeFSLockFactory.makeLock(...).isLocked() does not work
+1,DateValue.equals() relies on Calendar.equals()
+1,FastVectorHighlighter: AIOOBE occurs if one PhraseQuery is contained by another PhraseQuery
+0,"Implement ""point in time"" searching without relying on filesystem semantics"
+1,InstantiatedIndexReader throws NullPointerException in norms() when used with a MultiReader
+0,MultiThreadedConnectionManager should provide a shutdown
+0,the spi2dav sandbox project should be put into a common release cycle
+1,Null paths break the compare method
+1,Syns2Index fails
+0,Make DefaultSecurityManager the default security manager (instead of SimpleSecurityManager)
+1,IndexWriter.addIndexes results in java.lang.OutOfMemoryError
+1,VirtualNodeTypeStateProvider creates PropertyState with type != value(s).getType
+0,TCK: SetPropertyAssumeTypeTest doesn't allow ValueFormatException upon type conversion failure
+0,FastVectorHighlighter - expose FieldFragList.fragInfo for user-customizable FragmentsBuilder
+0,Create a Codec to work with streaming and append-only filesystems
+0,rename expungeDeletes
+0,querystring still not set in Url*Method constructors
+0,update tests so that both Query.XPATH and Query:SQL are treated as optional features
+1,Proxy-Authorization header received on server side
+1,DirectoryTaxonomyReader.refresh misbehaves with ref counts
+1,QueryParser does not correctly handle escaped characters within quoted strings
+0,Allow importing of ACL with unknown principals
+0,adding EmptyDocIdSet/Iterator
+0,Ability to group search results by field
+0,LoginModuleConfig should allow to specify principalProvider-name in addition to the class
+0,GCJ makefile hardcodes compiler commands
+0,JCR2SPI: Remove validation check for same-named Node and Property
+1,StandardTokenizer splitting all of Korean words into separate characters
+0,Refactor segmentInfos from IndexReader into its subclasses
