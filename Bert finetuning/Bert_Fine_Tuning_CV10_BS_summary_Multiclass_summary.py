@@ -70,7 +70,7 @@ def get_corpus_labels(raw_data):
         # txt += n_file["summary"] + " "
 
         # corpus.append(txt + " " + n_file["description"])
-        corpus.append(n_file["summary"])
+        corpus.append(n_file["summary"]+''+n_file["description"])
         labels.append(n_file["classified"])
     return corpus, labels
 
@@ -423,12 +423,10 @@ def evaluate(model, test_loader, file_path):
 
     save_pred(save_path=file_path, y_pred=y_pred, y_true=y_true)
     print('Classification Report :')
-    print(classification_report(y_true, y_pred, labels=[1, 0], digits=4))
+    print(classification_report(y_true, y_pred, labels=[0,1,2,3,4,5,6,7,8,9,10,12,13], digits=4))
 
 
 training_path = "Temp_Data_Files_Multiclass" + os.path.sep
-
-
 def cross_val(training_path, dataset_type):
     training_path += (dataset_type + os.path.sep + "Dataset_KFold_")
     print("STARTING CROSS VALIDATION FOR " + dataset_type + " DATASET" + '\n')
@@ -448,13 +446,6 @@ def cross_val(training_path, dataset_type):
         train_loss_list, valid_loss_list, global_steps_list = load_metrics(
             training_path + str(i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth")
 
-        plt.plot(global_steps_list, train_loss_list, label='Train')
-        plt.plot(global_steps_list, valid_loss_list, label='Valid')
-        plt.xlabel('Global Steps')
-        plt.ylabel('Loss')
-        plt.legend()
-        plt.show()
-
         best_model = BERT().to(device)
 
         load_checkpoint(training_path + str(i) + os.path.sep + "model" + os.path.sep + "model.pth", best_model)
@@ -466,3 +457,4 @@ def cross_val(training_path, dataset_type):
 cross_val(training_path, 'NotSampled')
 cross_val(training_path, 'UnderSampled')
 cross_val(training_path, 'OverSampled')
+ 
