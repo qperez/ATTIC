@@ -22,9 +22,9 @@ warnings.filterwarnings('ignore')
 from torchtext.data import Field, TabularDataset, BucketIterator, Iterator
 
 # Models
-
+from transformers import RobertaTokenizer, RobertaModel, AdamW, get_linear_schedule_with_warmup
 import torch.nn as nn
-from transformers import BertTokenizer, BertForSequenceClassification
+from transformers import BertTokenizer, BertForSequenceClassification, RobertaTokenizer
 
 # Training
 
@@ -70,7 +70,7 @@ def get_corpus_labels(raw_data):
         # txt += n_file["summary"] + " "
 
         # corpus.append(txt + " " + n_file["description"])
-        corpus.append(n_file["summary"]+''+n_file["description"])
+        corpus.append(n_file["summary"] + '' + n_file["description"])
         labels.append(n_file["classified"])
     return corpus, labels
 
@@ -220,10 +220,10 @@ print(device)
 
 
 def init(TRAIN_FILE, VALID_FILE, TEST_FILE):
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
 
     # Model parameter
-    MAX_SEQ_LEN = 128
+    MAX_SEQ_LEN = 512
     PAD_INDEX = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
     UNK_INDEX = tokenizer.convert_tokens_to_ids(tokenizer.unk_token)
 
@@ -248,16 +248,16 @@ def init(TRAIN_FILE, VALID_FILE, TEST_FILE):
     return train_iter, valid_iter, test_iter
 
 
-class BERT(nn.Module):
+class ROBERTAClassifier(nn.Module):
 
     def __init__(self):
-        super(BERT, self).__init__()
+        super(ROBERTAClassifier, self).__init__()
 
-        options_name = "bert-base-uncased"
-        self.encoder = BertForSequenceClassification.from_pretrained(options_name, num_labels=14)
+        options_name = "roberta-base"
+        self.roberta = RobertaModel.from_pretrained(options_name, num_labels=14)
 
     def forward(self, text, label):
-        loss, text_fea = self.encoder(text, labels=label)[:2]
+        loss, text_fea = self.roberta(text, labels=label)[:2]
 
         return loss, text_fea
 
@@ -422,16 +422,18 @@ def evaluate(model, test_loader, file_path):
 
     save_pred(save_path=file_path, y_pred=y_pred, y_true=y_true)
     print('Classification Report :')
-    print(classification_report(y_true, y_pred, labels=[0,1,2,3,4,5,6,7,8,9,10,12,13], digits=4))
+    print(classification_report(y_true, y_pred, labels=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13], digits=4))
 
 
 training_path = "Temp_Data_Files_Multiclass" + os.path.sep
+
+
 def cross_val(training_path, dataset_type):
     training_path += (dataset_type + os.path.sep + "Dataset_KFold_")
     print("STARTING CROSS VALIDATION FOR " + dataset_type + " DATASET" + '\n')
     for i in range(10):
         print("STARTING WITH FOLD NB " + str(i) + '\n')
-        model = BERT().to(device)
+        model = ROBERTAClassifier().to(device)
         optimizer = optim.Adam(model.parameters(), lr=2e-5)
 
         train_iter, valid_iter, test_iter = init(
@@ -445,7 +447,7 @@ def cross_val(training_path, dataset_type):
         train_loss_list, valid_loss_list, global_steps_list = load_metrics(
             training_path + str(i) + os.path.sep + "metrics" + os.path.sep + "metrics.pth")
 
-        best_model = BERT().to(device)
+        best_model = ROBERTAClassifier().to(device)
 
         load_checkpoint(training_path + str(i) + os.path.sep + "model" + os.path.sep + "model.pth", best_model)
 
@@ -454,6 +456,5 @@ def cross_val(training_path, dataset_type):
 
 
 cross_val(training_path, 'NotSampled')
-cross_val(training_path, 'UnderSampled')
-cross_val(training_path, 'OverSampled')
- 
+# cross_val(training_path, 'UnderSampled')
+# cross_val(training_path, 'OverSampled')
