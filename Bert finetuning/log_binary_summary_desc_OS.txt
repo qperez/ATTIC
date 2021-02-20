@@ -1,0 +1,456 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (1137 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+1940 BUG / 5591 NBUG 
+
+starting creation of datasets for cross validation
+creating oversampled dataset of : (5591, 2)
+starting creation of datasets for cross validation
+creating dataset of : (5591, 2)
+starting creation of datasets for cross validation
+creating undersampled dataset of : (5591, 2)
+starting fine tuning
+cuda:0
+STARTING CROSS VALIDATION FOR OverSampled DATASET
+
+STARTING WITH FOLD NB 0
+
+Epoch [1/5], Step [281/2815], Train Loss: 0.5971, Valid Loss: 0.4587
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/metrics/metrics.pth
+Epoch [1/5], Step [562/2815], Train Loss: 0.3473, Valid Loss: 0.3976
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/metrics/metrics.pth
+Epoch [2/5], Step [843/2815], Train Loss: 0.2296, Valid Loss: 0.3797
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/metrics/metrics.pth
+Epoch [2/5], Step [1124/2815], Train Loss: 0.2230, Valid Loss: 0.3326
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/metrics/metrics.pth
+Epoch [3/5], Step [1405/2815], Train Loss: 0.1123, Valid Loss: 0.4008
+Epoch [3/5], Step [1686/2815], Train Loss: 0.1160, Valid Loss: 0.4509
+Epoch [4/5], Step [1967/2815], Train Loss: 0.0406, Valid Loss: 0.5326
+Epoch [4/5], Step [2248/2815], Train Loss: 0.0767, Valid Loss: 0.4137
+Epoch [5/5], Step [2529/2815], Train Loss: 0.0333, Valid Loss: 0.5102
+Epoch [5/5], Step [2810/2815], Train Loss: 0.0363, Valid Loss: 0.6200
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_0/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_0/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_0/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7870    0.8896    0.8352       299
+           0     0.9341    0.8667    0.8991       540
+
+    accuracy                         0.8749       839
+   macro avg     0.8606    0.8781    0.8672       839
+weighted avg     0.8817    0.8749    0.8763       839
+
+STARTING WITH FOLD NB 1
+
+Epoch [1/5], Step [280/2800], Train Loss: 0.6648, Valid Loss: 0.7057
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/metrics/metrics.pth
+Epoch [1/5], Step [560/2800], Train Loss: 0.5253, Valid Loss: 0.4282
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/metrics/metrics.pth
+Epoch [2/5], Step [840/2800], Train Loss: 0.3360, Valid Loss: 0.3349
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/metrics/metrics.pth
+Epoch [2/5], Step [1120/2800], Train Loss: 0.2659, Valid Loss: 0.3340
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/metrics/metrics.pth
+Epoch [3/5], Step [1400/2800], Train Loss: 0.1556, Valid Loss: 0.3742
+Epoch [3/5], Step [1680/2800], Train Loss: 0.1653, Valid Loss: 0.4003
+Epoch [4/5], Step [1960/2800], Train Loss: 0.0620, Valid Loss: 0.4681
+Epoch [4/5], Step [2240/2800], Train Loss: 0.0879, Valid Loss: 0.4379
+Epoch [5/5], Step [2520/2800], Train Loss: 0.0412, Valid Loss: 0.4660
+Epoch [5/5], Step [2800/2800], Train Loss: 0.0678, Valid Loss: 0.4230
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_1/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_1/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_1/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.8272    0.8328    0.8300       299
+           0     0.9071    0.9037    0.9054       540
+
+    accuracy                         0.8784       839
+   macro avg     0.8672    0.8682    0.8677       839
+weighted avg     0.8786    0.8784    0.8785       839
+
+STARTING WITH FOLD NB 2
+
+Epoch [1/5], Step [280/2800], Train Loss: 0.5073, Valid Loss: 0.4728
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/metrics/metrics.pth
+Epoch [1/5], Step [560/2800], Train Loss: 0.3496, Valid Loss: 0.2982
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/metrics/metrics.pth
+Epoch [2/5], Step [840/2800], Train Loss: 0.2552, Valid Loss: 0.3020
+Epoch [2/5], Step [1120/2800], Train Loss: 0.2063, Valid Loss: 0.2916
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/metrics/metrics.pth
+Epoch [3/5], Step [1400/2800], Train Loss: 0.1246, Valid Loss: 0.3629
+Epoch [3/5], Step [1680/2800], Train Loss: 0.1454, Valid Loss: 0.2976
+Epoch [4/5], Step [1960/2800], Train Loss: 0.0675, Valid Loss: 0.4282
+Epoch [4/5], Step [2240/2800], Train Loss: 0.0849, Valid Loss: 0.3927
+Epoch [5/5], Step [2520/2800], Train Loss: 0.0498, Valid Loss: 0.4666
+Epoch [5/5], Step [2800/2800], Train Loss: 0.0584, Valid Loss: 0.4746
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_2/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_2/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_2/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.8209    0.8127    0.8168       299
+           0     0.8969    0.9019    0.8994       540
+
+    accuracy                         0.8701       839
+   macro avg     0.8589    0.8573    0.8581       839
+weighted avg     0.8698    0.8701    0.8699       839
+
+STARTING WITH FOLD NB 3
+
+Epoch [1/5], Step [280/2800], Train Loss: 0.5372, Valid Loss: 0.4188
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_3/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_3/metrics/metrics.pth
+Epoch [1/5], Step [560/2800], Train Loss: 0.3396, Valid Loss: 0.3421
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_3/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_3/metrics/metrics.pth
+Epoch [2/5], Step [840/2800], Train Loss: 0.2358, Valid Loss: 0.3656
+Epoch [2/5], Step [1120/2800], Train Loss: 0.1965, Valid Loss: 0.3841
+Epoch [3/5], Step [1400/2800], Train Loss: 0.1103, Valid Loss: 0.3800
+Epoch [3/5], Step [1680/2800], Train Loss: 0.1194, Valid Loss: 0.4259
+Epoch [4/5], Step [1960/2800], Train Loss: 0.0527, Valid Loss: 0.7060
+Epoch [4/5], Step [2240/2800], Train Loss: 0.0633, Valid Loss: 0.5503
+Epoch [5/5], Step [2520/2800], Train Loss: 0.0421, Valid Loss: 0.7200
+Epoch [5/5], Step [2800/2800], Train Loss: 0.0384, Valid Loss: 0.6053
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_3/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_3/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_3/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_3/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7599    0.8997    0.8239       299
+           0     0.9381    0.8426    0.8878       540
+
+    accuracy                         0.8629       839
+   macro avg     0.8490    0.8711    0.8558       839
+weighted avg     0.8746    0.8629    0.8650       839
+
+STARTING WITH FOLD NB 4
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+
+Epoch [1/5], Step [281/2810], Train Loss: 0.5867, Valid Loss: 0.4365
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/metrics/metrics.pth
+Epoch [1/5], Step [562/2810], Train Loss: 0.3879, Valid Loss: 0.3510
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/metrics/metrics.pth
+Epoch [2/5], Step [843/2810], Train Loss: 0.2752, Valid Loss: 0.4059
+Epoch [2/5], Step [1124/2810], Train Loss: 0.2418, Valid Loss: 0.3238
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/metrics/metrics.pth
+Epoch [3/5], Step [1405/2810], Train Loss: 0.1528, Valid Loss: 0.3910
+Epoch [3/5], Step [1686/2810], Train Loss: 0.1279, Valid Loss: 0.3113
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/metrics/metrics.pth
+Epoch [4/5], Step [1967/2810], Train Loss: 0.0920, Valid Loss: 0.3546
+Epoch [4/5], Step [2248/2810], Train Loss: 0.0679, Valid Loss: 0.4502
+Epoch [5/5], Step [2529/2810], Train Loss: 0.0520, Valid Loss: 0.5130
+Epoch [5/5], Step [2810/2810], Train Loss: 0.0695, Valid Loss: 0.4384
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_4/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_4/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_4/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7944    0.8528    0.8226       299
+           0     0.9151    0.8778    0.8960       540
+
+    accuracy                         0.8689       839
+   macro avg     0.8547    0.8653    0.8593       839
+weighted avg     0.8721    0.8689    0.8699       839
+
+STARTING WITH FOLD NB 5
+
+Epoch [1/5], Step [281/2810], Train Loss: 0.5517, Valid Loss: 0.3423
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/metrics/metrics.pth
+Epoch [1/5], Step [562/2810], Train Loss: 0.3692, Valid Loss: 0.3403
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/metrics/metrics.pth
+Epoch [2/5], Step [843/2810], Train Loss: 0.2503, Valid Loss: 0.2769
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/metrics/metrics.pth
+Epoch [2/5], Step [1124/2810], Train Loss: 0.2112, Valid Loss: 0.3472
+Epoch [3/5], Step [1405/2810], Train Loss: 0.1081, Valid Loss: 0.3224
+Epoch [3/5], Step [1686/2810], Train Loss: 0.1287, Valid Loss: 0.3310
+Epoch [4/5], Step [1967/2810], Train Loss: 0.0607, Valid Loss: 0.5271
+Epoch [4/5], Step [2248/2810], Train Loss: 0.0680, Valid Loss: 0.3964
+Epoch [5/5], Step [2529/2810], Train Loss: 0.0531, Valid Loss: 0.4692
+Epoch [5/5], Step [2810/2810], Train Loss: 0.0514, Valid Loss: 0.5320
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_5/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_5/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_5/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7910    0.8863    0.8360       299
+           0     0.9325    0.8704    0.9004       540
+
+    accuracy                         0.8760       839
+   macro avg     0.8618    0.8783    0.8682       839
+weighted avg     0.8821    0.8760    0.8774       839
+
+STARTING WITH FOLD NB 6
+
+Epoch [1/5], Step [280/2805], Train Loss: 0.5956, Valid Loss: 0.3616
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_6/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_6/metrics/metrics.pth
+Epoch [1/5], Step [560/2805], Train Loss: 0.3741, Valid Loss: 0.3618
+Epoch [2/5], Step [840/2805], Train Loss: 0.2473, Valid Loss: 0.2986
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_6/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_6/metrics/metrics.pth
+Epoch [2/5], Step [1120/2805], Train Loss: 0.1984, Valid Loss: 0.3384
+Epoch [3/5], Step [1400/2805], Train Loss: 0.1046, Valid Loss: 0.4126
+Epoch [3/5], Step [1680/2805], Train Loss: 0.1219, Valid Loss: 0.3454
+Epoch [4/5], Step [1960/2805], Train Loss: 0.0612, Valid Loss: 0.4449
+Epoch [4/5], Step [2240/2805], Train Loss: 0.0662, Valid Loss: 0.3531
+Epoch [5/5], Step [2520/2805], Train Loss: 0.0410, Valid Loss: 0.4350
+Epoch [5/5], Step [2800/2805], Train Loss: 0.0376, Valid Loss: 0.4875
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_6/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_6/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_6/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_6/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7717    0.8930    0.8279       299
+           0     0.9351    0.8537    0.8925       540
+
+    accuracy                         0.8677       839
+   macro avg     0.8534    0.8733    0.8602       839
+weighted avg     0.8769    0.8677    0.8695       839
+
+STARTING WITH FOLD NB 7
+
+Epoch [1/5], Step [281/2815], Train Loss: 0.6099, Valid Loss: 0.4186
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/metrics/metrics.pth
+Epoch [1/5], Step [562/2815], Train Loss: 0.3903, Valid Loss: 0.3304
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/metrics/metrics.pth
+Epoch [2/5], Step [843/2815], Train Loss: 0.2591, Valid Loss: 0.4373
+Epoch [2/5], Step [1124/2815], Train Loss: 0.2197, Valid Loss: 0.3597
+Epoch [3/5], Step [1405/2815], Train Loss: 0.1157, Valid Loss: 0.3646
+Epoch [3/5], Step [1686/2815], Train Loss: 0.1286, Valid Loss: 0.3284
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/metrics/metrics.pth
+Epoch [4/5], Step [1967/2815], Train Loss: 0.0593, Valid Loss: 0.5524
+Epoch [4/5], Step [2248/2815], Train Loss: 0.0665, Valid Loss: 0.6695
+Epoch [5/5], Step [2529/2815], Train Loss: 0.0442, Valid Loss: 0.4505
+Epoch [5/5], Step [2810/2815], Train Loss: 0.0365, Valid Loss: 0.4704
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_7/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_7/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_7/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7826    0.9030    0.8385       299
+           0     0.9413    0.8611    0.8994       540
+
+    accuracy                         0.8760       839
+   macro avg     0.8620    0.8821    0.8690       839
+weighted avg     0.8847    0.8760    0.8777       839
+
+STARTING WITH FOLD NB 8
+
+Epoch [1/5], Step [279/2790], Train Loss: 0.5120, Valid Loss: 0.4024
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/metrics/metrics.pth
+Epoch [1/5], Step [558/2790], Train Loss: 0.3421, Valid Loss: 0.2816
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/metrics/metrics.pth
+Epoch [2/5], Step [837/2790], Train Loss: 0.2332, Valid Loss: 0.2775
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/model/model.pthSome weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Token indices sequence length is longer than the specified maximum sequence length for this model (2671 > 512). Running this sequence through the model will result in indexing errors
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/metrics/metrics.pth
+Epoch [2/5], Step [1116/2790], Train Loss: 0.2062, Valid Loss: 0.2716
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/metrics/metrics.pth
+Epoch [3/5], Step [1395/2790], Train Loss: 0.1008, Valid Loss: 0.3397
+Epoch [3/5], Step [1674/2790], Train Loss: 0.1180, Valid Loss: 0.3404
+Epoch [4/5], Step [1953/2790], Train Loss: 0.0555, Valid Loss: 0.3165
+Epoch [4/5], Step [2232/2790], Train Loss: 0.0727, Valid Loss: 0.2933
+Epoch [5/5], Step [2511/2790], Train Loss: 0.0356, Valid Loss: 0.3651
+Epoch [5/5], Step [2790/2790], Train Loss: 0.0417, Valid Loss: 0.4079
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_8/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_8/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_8/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.8622    0.8161    0.8385       299
+           0     0.9011    0.9278    0.9142       540
+
+    accuracy                         0.8880       839
+   macro avg     0.8816    0.8719    0.8764       839
+weighted avg     0.8872    0.8880    0.8872       839
+
+STARTING WITH FOLD NB 9
+
+Epoch [1/5], Step [277/2770], Train Loss: 0.6247, Valid Loss: 0.4703
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/metrics/metrics.pth
+Epoch [1/5], Step [554/2770], Train Loss: 0.4059, Valid Loss: 0.3913
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/metrics/metrics.pth
+Epoch [2/5], Step [831/2770], Train Loss: 0.2643, Valid Loss: 0.3883
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/model/model.pth
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/metrics/metrics.pth
+Epoch [2/5], Step [1108/2770], Train Loss: 0.2287, Valid Loss: 0.4103
+Epoch [3/5], Step [1385/2770], Train Loss: 0.1197, Valid Loss: 0.4502
+Epoch [3/5], Step [1662/2770], Train Loss: 0.1222, Valid Loss: 0.4500
+Epoch [4/5], Step [1939/2770], Train Loss: 0.0525, Valid Loss: 0.5262
+Epoch [4/5], Step [2216/2770], Train Loss: 0.0615, Valid Loss: 0.5434
+Epoch [5/5], Step [2493/2770], Train Loss: 0.0386, Valid Loss: 0.6270
+Epoch [5/5], Step [2770/2770], Train Loss: 0.0512, Valid Loss: 0.6868
+Model saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/metrics/metrics.pth
+Finished Training!
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_9/metrics/metrics.pth
+Model loaded from <== Temp_Data_Files/OverSampled/Dataset_KFold_9/model/model.pth
+Pred saved to ==> Temp_Data_Files/OverSampled/Dataset_KFold_9/evaluate/evaluate.pth
+Classification Report :
+              precision    recall  f1-score   support
+
+           1     0.7881    0.8829    0.8328       299
+           0     0.9306    0.8685    0.8985       540
+
+    accuracy                         0.8737       839
+   macro avg     0.8593    0.8757    0.8656       839
+weighted avg     0.8798    0.8737    0.8751       839
+
