@@ -154,6 +154,7 @@ def create_csv_for_Kfold(corpus, labels, nb_csv=10, relabel=True, train_set_size
     for index, possible_label in enumerate(possible_labels):
         label_dict[possible_label] = index
     df['label'] = df.label.replace(label_dict)
+    print(label_dict)
 
     if SamplingMode == 0:
         print('creating dataset of : ' + str(df.shape))
@@ -422,7 +423,7 @@ def evaluate(model, test_loader, file_path):
 
     save_pred(save_path=file_path, y_pred=y_pred, y_true=y_true)
     print('Classification Report :')
-    print(classification_report(y_true, y_pred, labels=[0,1,2,3,4,5,6,7,8,9,10,12,13], digits=4))
+    print(classification_report(y_true, y_pred, labels=[0,1,2,3,4,5,6,7,8,9,10,11,12,13], digits=4))
 
 
 training_path = "Temp_Data_Files_Multiclass" + os.path.sep
@@ -456,4 +457,4 @@ def cross_val(training_path, dataset_type):
 cross_val(training_path, 'NotSampled')
 cross_val(training_path, 'UnderSampled')
 cross_val(training_path, 'OverSampled')
- 
+
