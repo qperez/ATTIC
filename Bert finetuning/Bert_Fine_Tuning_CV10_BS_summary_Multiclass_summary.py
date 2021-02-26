@@ -455,6 +455,6 @@ def cross_val(training_path, dataset_type):
 
 
 cross_val(training_path, 'NotSampled')
-cross_val(training_path, 'UnderSampled')
-cross_val(training_path, 'OverSampled')
+#cross_val(training_path, 'UnderSampled')
+#cross_val(training_path, 'OverSampled')
 
