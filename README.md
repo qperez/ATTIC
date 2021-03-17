@@ -1,5 +1,14 @@
 # NNBuTicC
-Bug Ticket Classifier using Multilayer Perceptron 
+Neural Network Bug Ticket Classifier (NNBuTicC)
+
+Authors:
+* Quentin Perez
+* Pierre-Antoine Jean ([Github](https://github.com/PAJEAN) :octocat:)
+
+Co-authors
+* Christelle Urtado
+* Sylvain Vauttier
+
 
 # Description
 This repository contains source code about experiments about binary bug tickets classifiers.
@@ -8,6 +17,9 @@ It is structured in 5 directories :file_folder: .
 ```bash
 root
 |
+├─ requirements.txt
+├─ LICENSE
+├─ README.md
 ├─ genetic_algorithm 
 ├─ classifier_selection 
 ├─ multilayer_perceptron_settings
@@ -16,8 +28,8 @@ root
 
 
 #### genetic_algorithm 
-Directory containing sources implementing genetic algorithm to optimize metaparameters (features 
-number and hidden_layer_size)
+Directory containing sources implementing genetic algorithm to optimize hyper-parameters (features 
+number and hidden_layer_size for the MLP)
 
 #### classifier_selection 
 Contains a Jupyter notebook to reproduce results used to compare 6 classifiers (MLP, SVM, SGD, RR, RF, KNN).
@@ -51,14 +63,11 @@ rm -rf anonymous.4open.science
 * Python 3
 * Package Installer for Python (pip)
 
+You can install Python required libraries using the following command:
+```bash
+$ pip install -r requirements.txt
+```
 
-A venv environment with following Python libraries is required:
-* [Matplotlib](https://matplotlib.org), installation instructions 
-[here](https://matplotlib.org/3.3.2/users/installing.html#).
-* [Scikit-Learn](https://scikit-learn.org/), installation instructions 
-[here](https://scikit-learn.org/stable/install.html#installation-instructions).
-* [Jupyter](https://jupyter.org), installation instructions 
-[here](https://jupyter.org/install).
 
 ### genetic_algorithm
 Genetic algorithm parameters are set in a configuration Python file named "genetic_algo_params.py" at the directory root.
