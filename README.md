@@ -1,5 +1,5 @@
-# NNBuTicC
-Neural Network Bug Ticket Classifier (NNBuTicC)
+# ATTIC
+AuTomaTic Issue Classifier (ATTIC)
 
 Authors:
 * Quentin Perez
