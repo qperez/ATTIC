@@ -9,7 +9,7 @@ Co-authors
 * Christelle Urtado
 * Sylvain Vauttier
 
-# Demonstrator ATTIC based
+# Demonstrator
 
 Writing assistant for bug ticket based on ATTIC model is available [here](http://ec2co-ecsel-1iegdism3qjis-2023048106.eu-west-3.elb.amazonaws.com/).
 
