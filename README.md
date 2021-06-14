@@ -9,6 +9,9 @@ Co-authors
 * Christelle Urtado
 * Sylvain Vauttier
 
+# Demonstrator ATTIC based
+
+Writing assistant for bug ticket based on ATTIC model is available [here](http://ec2co-ecsel-1iegdism3qjis-2023048106.eu-west-3.elb.amazonaws.com/).
 
 # Description
 This repository contains source code about experiments about binary bug tickets classifiers.
@@ -43,19 +46,6 @@ Dataset :scroll: is split into 7 files to avoid the anonymisation limitation of 
 The dataset coming from the conference paper: 
 "[It’s not a bug, it’s a feature: how misclassification impacts bug prediction](https://www.microsoft.com/en-us/research/wp-content/uploads/2013/05/icse2013-bugclassify.pdf)" 
 by Herzig, Kim and Just, Sascha and Zeller, Andreas.)
-
-# How to get data and source code ? 
-
-To get data and source code you can use this command in a Linux terminal : 
-```bash
-$ mkdir paper_96 && \ 
-cd paper_96 && \ 
-wget -r https://anonymous.4open.science/r/816dccc2-ed04-4c0a-871a-bd517c06fa5a/ && \ 
-cd anonymous.4open.science/repository/816dccc2-ed04-4c0a-871a-bd517c06fa5a/ && \
-mv * ../../.. && \
-cd ../../.. && \
-rm -rf anonymous.4open.science
-```
 
 # How to use ? :computer:
 
